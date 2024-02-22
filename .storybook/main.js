@@ -8,7 +8,14 @@ const config = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "@storybook/addon-styling-webpack"
+    {
+      name: "storybook-addon-sass-postcss",
+      options: {
+        rule: {
+          test: /\.(scss|sass)$/i,
+        },
+      },
+    },
   ],
   framework: {
     name: "@storybook/html-webpack5",
