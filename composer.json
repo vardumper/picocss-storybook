@@ -16,8 +16,8 @@
       "bin/php -v",
       "yarn install"
     ],
-    "up": "@parallel storybook serve",
-    "storybook": "yarn storybook dev --quiet --disable-telemetry -p 6009 --debug-webpack",
+    // "up": "@parallel storybook serve",
+    // "storybook": "yarn storybook dev --quiet --disable-telemetry -p 6009 --debug-webpack",
     "serve": "bin/php -q -S localhost:8008 -t public >& /dev/null"
   },
   "require-dev": {
