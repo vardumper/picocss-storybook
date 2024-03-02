@@ -5,7 +5,9 @@ import "../stories/assets/js/main.js";
 import "../stories/assets/scss/pico.scss";
 import picocss from "./picocss";
 const fetchStoryHtml = async (url, path, params, storyContext) => {
-  const response = await fetch(new URL(`${url}/${path}`), {
+  const fetchUrl = new URL(`${url}/${path}`);
+  fetchUrl.search = new URLSearchParams(params).toString();
+  const response = await fetch(fetchUrl, {
     mode: "cors",
     headers: {
       Accept: "text/html",
@@ -25,7 +27,7 @@ const preview = {
       },
     },
     server: {
-      url: `http://localhost:8000/storybook`,
+      url: `http://localhost:8008/storybook`,
       fetchStoryHtml,
     },
     docs: {

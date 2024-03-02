@@ -1,5 +1,6 @@
 export default {
   title: "Content/Button",
+  tags: ["autodocs"],
   parameters: {
     server: {
       id: "content/button",

@@ -16,10 +16,9 @@ $twig = new \Twig\Environment($loader, [
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
 $app->get('/storybook/{id:.+}', function (Request $request, Response $response, $args) use ($twig) {
-    $html = $twig->render(sprintf('%s/index.twig', $args['id']), $args);
+    $html = $twig->render(sprintf('%s/index.twig', $args['id']), $request->getQueryParams());
     $response->getBody()->write($html);
-    // var_dump($request->getHeader('Origin'));
-    $response = $response->withAddedHeader('Access-Control-Allow-Origin', 'http://localhost:6006');
+    $response = $response->withAddedHeader('Access-Control-Allow-Origin', 'http://localhost:6009');
     return $response;
 });
 

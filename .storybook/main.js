@@ -37,8 +37,13 @@ const config = {
     };
   },
   docs: {
-    autodocs: "tag",
     toc: true,
+    autodocs: "tag",
+    defaultName: "Docs",
+    canvas: {
+      sourceState: "shown",
+    },
+    source: { type: "code" },
   },
 };
 export default config;

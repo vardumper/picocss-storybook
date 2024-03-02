@@ -17,8 +17,8 @@
       "yarn install"
     ],
     "up": "@parallel storybook serve",
-    "storybook": "yarn storybook dev --quiet --disable-telemetry --debug-webpack",
-    "serve": "bin/php -q -S localhost:8000 -t public >& /dev/null"
+    "storybook": "yarn storybook dev --quiet --disable-telemetry -p 6009 --debug-webpack",
+    "serve": "bin/php -q -S localhost:8008 -t public >& /dev/null"
   },
   "require-dev": {
     "veewee/composer-run-parallel": "^1.3"
