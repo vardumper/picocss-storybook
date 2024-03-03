@@ -1,3 +1,8 @@
-<a class="{{ class }}" href="{{ href }}" role="button" {{ disabled == true ? 'disabled' }}>
+{% apply spaceless %}
+<button
+    class="{{ class }}"
+    type="{{ type }}"
+    {{ disabled == true ? 'disabled' }}>
     {{ label }}
-</a>
+</button>
+{% endapply %}

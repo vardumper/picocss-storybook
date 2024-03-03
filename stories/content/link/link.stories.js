@@ -11,18 +11,21 @@ export default {
     href: { control: "text" },
     title: "text",
     current: { control: "text" },
+    role: { control: "text" },
   },
 };
 
 const defaultArgs = {
   text: "Link Text",
   href: "#",
+  title: "Link Title",
 };
 
 export const Default = {
   args: {
     text: "Link Text",
     href: "#",
+    title: "Link Title",
   },
 };
 
@@ -42,8 +45,48 @@ export const Contrast = {
 
 export const PrimaryCurrent = {
     args: {
-        text: "Link Text",
-        href: "#",
-        current: true,
+        ...defaultArgs,
+        current: "page",
     },
+};
+
+export const SecondaryCurrent = {
+  args: {
+    ...defaultArgs,
+    class: "secondary",
+    current: "page",
+  },
+};
+
+export const ContrastCurrent = {
+  args: {
+    ...defaultArgs,
+    class: "contrast",
+    current: "page",
+  },
+};
+
+export const ButtonPrimary = {
+  args: {
+    ...defaultArgs,
+    role: "button",
+  },
+};
+
+
+export const ButtonSecondary = {
+  args: {
+    ...defaultArgs,
+    class: "secondary",
+    role: "button",
+  },
+};
+
+
+export const ButtonContrast = {
+  args: {
+    ...defaultArgs,
+    class: "contrast",
+    role: "button",
+  },
 };
