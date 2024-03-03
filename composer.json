@@ -9,8 +9,9 @@
     "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
     "post-update-cmd": "vendor/bin/cghooks update",
     "build": [
+      "Composer\\Config::disableProcessTimeout()",
       "test -f bin/php && rm bin/php || true",
-      "test -d .cache/build && mkdir .cache/build || true",
+      "test -d .cache/build || mkdir -p .cache/build",
       "cd .cache/build && ../../vendor/bin/spc download --with-php=8.3 --for-extensions 'filter'",
       "cd .cache/build && ../../vendor/bin/spc build --build-cli 'filter'",
       "cd .cache/build && mv buildroot/bin/php ../../bin",
