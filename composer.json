@@ -7,8 +7,8 @@
   },
   "scripts": {
     "build": [
-      "rm bin/php",
-      "mkdir .cache/build",
+      "test -f bin/php && rm bin/php || true",
+      "test -d .cache/build && mkdir .cache/build || true",
       "cd .cache/build && ../../vendor/bin/spc download --with-php=8.3 --for-extensions 'filter'",
       "cd .cache/build && ../../vendor/bin/spc build --build-cli 'filter'",
       "cd .cache/build && mv buildroot/bin/php ../../bin",
