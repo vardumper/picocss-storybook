@@ -6,6 +6,8 @@
     "crazywhalecc/static-php-cli": "^2.1"
   },
   "scripts": {
+    "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
+    "post-update-cmd": "vendor/bin/cghooks update",
     "build": [
       "test -f bin/php && rm bin/php || true",
       "test -d .cache/build && mkdir .cache/build || true",
@@ -25,6 +27,19 @@
   "config": {
     "allow-plugins": {
       "veewee/composer-run-parallel": true
+    }
+  },
+  "extra": {
+    "hooks": {
+      "pre-commit": [
+        ".hooks/pre-commit"
+      ],
+      "commit-msg": [
+        ".hooks/commit-msg"
+      ],
+      "post-commit": [
+        ".hooks/post-commit"
+      ]
     }
   }
 }

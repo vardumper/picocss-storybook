@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "68ad1af07cfdbf75536008ce8d134619",
+    "content-hash": "7408575ce123b3a890d57e5f0598358e",
     "packages": [
         {
             "name": "crazywhalecc/static-php-cli",
