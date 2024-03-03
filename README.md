@@ -25,3 +25,8 @@ Then install both _NPM_ and _PHP_ dependencies.
 composer install
 yarn install
 ```
+
+As an experiment, and to learn how php-static-cli works, I added a `composer run build` script which downloads PHP 8.3 CLI SAPI with a size of only 4 MB. This is a great way to run PHP without having to install it on your machine. That said, I am totally aware that Composer requires PHP as well.
+
+// "up": "@parallel storybook serve",
+// "storybook": "yarn storybook dev --quiet --disable-telemetry -p 6009 --debug-webpack",

@@ -16,7 +16,19 @@ $twig = new \Twig\Environment($loader, [
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
 $app->get('/storybook/{id:.+}', function (Request $request, Response $response, $args) use ($twig) {
-    $html = $twig->render(sprintf('%s/index.twig', $args['id']), $request->getQueryParams());
+    $params = $request->getQueryParams();
+    foreach($params as $key => $value) {
+        if (is_string($value) && strpos($value, 'true') !== false) {
+            $params[$key] = true;
+        }
+        if (is_string($value) && strpos($value, 'false') !== false) {
+            $params[$key] = false;
+        }
+        if (is_numeric($value)) {
+            $params[$key] = (int)$value;
+        }
+    }
+    $html = $twig->render(sprintf('%s/index.twig', $args['id']), $params);
     $response->getBody()->write($html);
     $response = $response->withAddedHeader('Access-Control-Allow-Origin', 'http://localhost:6009');
     return $response;

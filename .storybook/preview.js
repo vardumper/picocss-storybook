@@ -2,7 +2,9 @@
 
 import "../stories/assets/css/storybook.css";
 import "../stories/assets/js/main.js";
-import "../stories/assets/scss/pico.scss";
+// import "../stories/assets/scss/pico.scss";
+import "../node_modules/@picocss/pico/css/pico.css"
+
 import picocss from "./picocss";
 const fetchStoryHtml = async (url, path, params, storyContext) => {
   const fetchUrl = new URL(`${url}/${path}`);
@@ -31,7 +33,15 @@ const preview = {
       fetchStoryHtml,
     },
     docs: {
-      theme: picocss,
+      autodocs: "tag",
+      defaultName: "Docs",
+      canvas: {
+        sourceState: "shown",
+      },
+      story: {
+        iframeHeight: "400px",
+      },
+      source: { type: "code" },
     },
   },
 };
