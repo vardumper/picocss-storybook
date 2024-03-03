@@ -8,8 +8,13 @@
     "storybook": "storybook dev -p 6009",
     "build-storybook": "storybook build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "pico",
+    "picocss",
+    "css",
+    "framework"
+  ],
+  "author": "Erik Pöhler <info@erikpoehler.com>",
   "license": "ISC",
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.17",
@@ -32,6 +37,7 @@
     "@picocss/pico": "^2.0.3",
     "@storybook/addon-styling-webpack": "^0.0.6",
     "@storybook/server": "^7.6.17",
+    "jackspeak": "2.3.6",
     "sass": "^1.71.1"
   },
   "resolutions": {
