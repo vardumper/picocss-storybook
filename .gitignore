@@ -1,4 +1,6 @@
 /.history/
 /.cache/
+/bin/php
 /node_modules/
 /vendor/
+/storybook-static/
