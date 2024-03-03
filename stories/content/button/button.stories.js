@@ -1,5 +1,5 @@
 export default {
-  title: "Content/Button",
+  title: "Content/Button (Link)",
   tags: ["autodocs"],
   parameters: {
     server: {
@@ -12,7 +12,6 @@ export default {
 };
 
 const defaultArgs = {
-  element: 'a',
   label: "Button",
   href: "#",
 };

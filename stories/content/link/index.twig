@@ -1,0 +1,10 @@
+{% apply spaceless %}
+<a
+    {% if current is defined %}aria-current="{{ current }}"{% endif %}
+    {% if class is defined %}class="{{ class }}"{% endif %}
+    {% if title is defined %}title="{{ title }}"{% endif %}
+    {% if href is defined %}href="{{ href }}"{% endif %}
+    {% if role is defined %}role="{{ role }}"{% endif %}>
+    {{ text }}
+</a>
+{% endapply %}

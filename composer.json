@@ -18,7 +18,10 @@
       "bin/php -v",
       "yarn install"
     ],
-    "serve": "bin/php -q -S localhost:8008 -t public >& /dev/null"
+    "serve": [
+      "Composer\\Config::disableProcessTimeout()",
+      "bin/php -q -S localhost:8008 -t public"
+    ]
   },
   "require-dev": {
     "veewee/composer-run-parallel": "^1.3",
