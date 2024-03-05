@@ -25,6 +25,9 @@
     ],
     "storybook": [
       "yarn storybook"
+    ],
+    "up": [
+      "@parallel serve storybook"
     ]
   },
   "require-dev": {
