@@ -22,6 +22,9 @@
     "serve": [
       "Composer\\Config::disableProcessTimeout()",
       "bin/php -q -S localhost:8008 -t public"
+    ],
+    "storybook": [
+      "yarn storybook"
     ]
   },
   "require-dev": {
