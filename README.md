@@ -25,4 +25,6 @@ Then install composer dependencies and run the console command which generates t
 ```bash
 composer install
 bin/console
+yarn install
+yarn storybook
 ```
