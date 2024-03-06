@@ -1,10 +1,10 @@
 ---
 id: button
+nodeName: button
 nodeValue: Button
 nodeValueChoices:
   default: Button
   long: "Button with utf8 \U0001F436, <abbr title=\"Hypertext Markup Language\">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>"
-nodeName: button
 attributes:
 - name: className
   control: select

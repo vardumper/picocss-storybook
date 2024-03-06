@@ -6,7 +6,7 @@ export default {
   render: ({ nodeValue, %s }) => {
     const isBool = val => 'boolean' === typeof val;
     const attrMap = {'className': 'class'};
-    getAttr = (val) => attrMap.val || val;
+    let getAttr = (val) => attrMap.val || val;
     const el = document.createElement('%s');
     el.innerHTML = nodeValue;
     %s
