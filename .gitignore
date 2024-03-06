@@ -5,3 +5,4 @@
 /vendor/
 /storybook-static/
 /.history/
+/stories/*/*/*.stories.js

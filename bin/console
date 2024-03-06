@@ -1,0 +1,11 @@
+#!/usr/bin/env php
+<?php
+declare(strict_types=1);
+require __DIR__ . '/../vendor/autoload.php';
+
+use PicoCSS\Storybook\Command\MakeCommand;
+
+$app = new Silly\Application();
+$app->command('make', new MakeCommand());
+$app->setDefaultCommand('make');
+$app->run();

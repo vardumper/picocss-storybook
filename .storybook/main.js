@@ -11,6 +11,9 @@ const config = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    "storybook-addon-pseudo-states",
+    '@storybook/addon-a11y',
+    // "@storybook/addon-webpack5-compiler-swc",
     {
       name: "storybook-addon-sass-postcss",
       options: {
@@ -19,21 +22,20 @@ const config = {
         },
       },
     },
-    "@storybook/addon-webpack5-compiler-swc",
+    "@storybook/addon-webpack5-compiler-swc"
   ],
   staticDirs: ["../stories/assets/"],
   framework: {
-    name: "@storybook/server-webpack5",
+    name: "@storybook/html-webpack5",
     options: {
       builder: {
-        useSWC: true, // This flag is automatically set by Storybook for all new Webpack5 projects (except Angular) in Storybook 7.6
+        useSWC: true,
       },
     },
   },
-  swc: (config, options) => {
+  swc: (config) => {
     return {
       ...config,
-      // Apply your custom SWC configuration
     };
   },
   docs: {

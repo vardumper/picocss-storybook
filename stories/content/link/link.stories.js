@@ -1,11 +1,6 @@
 export default {
   title: "Content/Link",
   tags: ["autodocs"],
-  parameters: {
-    server: {
-      id: "content/link",
-    },
-  },
   argTypes: {
     text: { control: "text" },
     href: { control: "text" },
