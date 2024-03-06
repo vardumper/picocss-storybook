@@ -20,12 +20,9 @@ git clone git@github.com:vardumper/picocss-storybook.git
 cd picocss-storybook
 ```
 
-Then install both _NPM_ and _PHP_ dependencies.
+Then install composer dependencies and run the console command which generates the stories based on their YAML configurations.
 
 ```bash
 composer install
-composer build
-composer up
+bin/console
 ```
-
-As an experiment, and to learn how php-static-cli works, I added a `composer run build` script which downloads PHP 8.3 CLI SAPI with a size of only 4 MB.
