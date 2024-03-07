@@ -4,11 +4,11 @@ export default {
   tags: ["autodocs"],
   parameters: { layout: "centered" },
   render: ({ nodeValue, %s }) => {
-    const isBool = val => 'boolean' === typeof val;
+    const isBool = val => typeof val === 'boolean';
     const attrMap = {'className': 'class'};
-    let getAttr = (val) => attrMap.val || val;
+    let getAttr = (val) => attrMap[val] || val;
     const el = document.createElement('%s');
-    el.innerHTML = nodeValue;
+    if (nodeValue) { el.innerHTML = nodeValue; }
     %s
     return el;
   },

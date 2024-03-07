@@ -48,7 +48,7 @@ class MakeCommand
                 $attr = '';
                 $attrList = array_column($data['attributes'], 'name');
                 foreach($attrList as $at) {
-                    $attr .= sprintf("if (!isBool(%1\$s)) { el.setAttribute(getAttr('%1\$s'), %1\$s); } else { if (%1\$s === true) { el.setAttribute(getAttr('%1\$s'),'%1\$s'); } }\n    ", $at);
+                    $attr .= sprintf("if (!isBool(%1\$s) && %1\$s) { el.setAttribute(getAttr('%1\$s'), %1\$s); } else { if (%1\$s) { el.%1\$s = '%1\$s'; } }\n    ", $at);
                 }
 
                 $contents = sprintf(\file_get_contents(getcwd() . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'stories.tpl'), basename($destination), $title,  implode(',',$attrList), $data['nodeName'], $attr, $args, $stories);
@@ -79,12 +79,6 @@ class MakeCommand
             }
         }
 
-        // if ($value === 'disabled') {
-        //     $ret = array_search($value, array_column($data, 'name'));
-        //     var_dump($ret);
-        //     exit;
-        // }
-
         return false; // shall never reach here, since $value is taken from $data itself
     }
 
@@ -104,16 +98,16 @@ class MakeCommand
     private function buildStories(array $combinations, array $attributes, array $data) : string
     {
         // create Default story with all required attributes
-//         $stories = "export const Default = {
-//   args: {".PHP_EOL;
-//         $stories .= sprintf("    nodeValue: '%s'," . PHP_EOL, $data['nodeValue']);
-//         foreach($data['attributes'] as $item) {
-//             if ($item['required'] === true && isset($item['value'])) {
-//                 $stories .= sprintf("    %s: '%s',".PHP_EOL, $item['name'], $item['value']);
-//             }
-//         }
-//         $stories .="}
-// };" . PHP_EOL;
+        $stories = "export const Default = {
+  args: {".PHP_EOL;
+        $stories .= sprintf("    nodeValue: '%s'," . PHP_EOL, $data['nodeValue']);
+        foreach($data['attributes'] as $item) {
+            if ($item['required'] === true && isset($item['value'])) {
+                $stories .= sprintf("    %s: '%s',".PHP_EOL, $item['name'], $item['value']);
+            }
+        }
+        $stories .="}
+};" . PHP_EOL;
 
         // create all combinations
         foreach ($combinations as $combination) {
@@ -121,7 +115,7 @@ class MakeCommand
                 return $this->getChoiceKeyByValue($value, $data);
             }, $combination);
             $nodeValue = array_pop($combination);
-            $name = str_replace(' ', '', ucwords(implode(' ', $keys)));
+            $name = str_replace([' ','-'], '', ucwords(implode(' ', str_replace('-',' ',$keys))));
             $stories .= sprintf("export const %s = {" . PHP_EOL . "  args: {".PHP_EOL, $name);
             $stories .= sprintf("    nodeValue: '%s'," . PHP_EOL, $nodeValue);
             foreach ($data['attributes'] as $item) {
