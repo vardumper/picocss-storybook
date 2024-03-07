@@ -13,6 +13,7 @@ const config = {
     "@storybook/addon-interactions",
     "storybook-addon-pseudo-states",
     '@storybook/addon-a11y',
+    '@whitespace/storybook-addon-html',
     // "@storybook/addon-webpack5-compiler-swc",
     {
       name: "storybook-addon-sass-postcss",

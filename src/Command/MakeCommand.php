@@ -79,12 +79,6 @@ class MakeCommand
             }
         }
 
-        // if ($value === 'disabled') {
-        //     $ret = array_search($value, array_column($data, 'name'));
-        //     var_dump($ret);
-        //     exit;
-        // }
-
         return false; // shall never reach here, since $value is taken from $data itself
     }
 
@@ -104,16 +98,16 @@ class MakeCommand
     private function buildStories(array $combinations, array $attributes, array $data) : string
     {
         // create Default story with all required attributes
-//         $stories = "export const Default = {
-//   args: {".PHP_EOL;
-//         $stories .= sprintf("    nodeValue: '%s'," . PHP_EOL, $data['nodeValue']);
-//         foreach($data['attributes'] as $item) {
-//             if ($item['required'] === true && isset($item['value'])) {
-//                 $stories .= sprintf("    %s: '%s',".PHP_EOL, $item['name'], $item['value']);
-//             }
-//         }
-//         $stories .="}
-// };" . PHP_EOL;
+        $stories = "export const Default = {
+  args: {".PHP_EOL;
+        $stories .= sprintf("    nodeValue: '%s'," . PHP_EOL, $data['nodeValue']);
+        foreach($data['attributes'] as $item) {
+            if ($item['required'] === true && isset($item['value'])) {
+                $stories .= sprintf("    %s: '%s',".PHP_EOL, $item['name'], $item['value']);
+            }
+        }
+        $stories .="}
+};" . PHP_EOL;
 
         // create all combinations
         foreach ($combinations as $combination) {

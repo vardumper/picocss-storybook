@@ -43,6 +43,13 @@ export default {
 
   },
 };
+export const Default = {
+  args: {
+    nodeValue: 'Link Text',
+    href: '#',
+    disabled: '',
+}
+};
 export const PrimaryPrimaryPrimaryDefault = {
   args: {
     nodeValue: 'Link Text',
