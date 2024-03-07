@@ -25,15 +25,19 @@ class MakeCommand
 
                 $options = [];
                 foreach ($data['attributes'] as $attribute) {
-                    if ($attribute['control'] === 'select' && isset($attribute['choices'])) {
-                        $attributes[] = $attribute['name'];
-                        $options[] = $attribute['choices'];
-                    }
+                    // if ($attribute['required'] === true) {
+                    //     $options[] = isset($attribute['value']) ? [$attribute['value']] : $attribute['choices'];
+                    // } else {
+                        if ($attribute['control'] === 'select' && isset($attribute['choices'])) {
+                            $attributes[] = $attribute['name'];
+                            $options[] = $attribute['choices'];
+                        }
 
-                    if ($attribute['control'] === 'boolean') {
-                        $attributes[] = $attribute['name'];
-                        $options[] = ['', $attribute['name']];
-                    }
+                        if ($attribute['control'] === 'boolean') {
+                            $attributes[] = $attribute['name'];
+                            $options[] = ['', $attribute['name']];
+                        }
+                    // }
                 }
 
                 if (isset($data['nodeValueChoices'])) {
@@ -63,7 +67,7 @@ class MakeCommand
         return Command::SUCCESS;
     }
 
-    private function getChoiceKeyByValue(string $value, $data) : int|string|bool
+    private function getChoiceKeyByValue(string|bool $value, $data) : int|string|bool
     {
         if (isset($data['nodeValueChoices'])) {
             if (in_array($value, $data['nodeValueChoices'])) {
@@ -86,11 +90,16 @@ class MakeCommand
     {
         $args = '';
         foreach ($attributes as $attribute) {
-            if ($attribute['control'] === 'select') {
-                $args .= sprintf("    %s: {".PHP_EOL."        control: '%s',".PHP_EOL."        options: %s,".PHP_EOL."        description: '%s',".PHP_EOL."    },".PHP_EOL, $attribute['name'], $attribute['control'], json_encode($attribute['choices']), $attribute['required'] === true ? '**Mandatory** ' . $attribute['name'] : '**Optional** ' . $attribute['name']);
+            if ($attribute['required'] === true) {
+                $args .= sprintf("    %s: {".PHP_EOL."        control: '%s',".PHP_EOL."        description: '%s',".PHP_EOL."    },".PHP_EOL, $attribute['name'], $attribute['control'], $attribute['required'] === true ? '**Mandatory** ' . $attribute['name'] : '**Optional** ' . $attribute['name']);
                 continue;
+            } else {
+                if ($attribute['control'] === 'select') {
+                    $args .= sprintf("    %s: {".PHP_EOL."        control: '%s',".PHP_EOL."        options: %s,".PHP_EOL."        description: '%s',".PHP_EOL."    },".PHP_EOL, $attribute['name'], $attribute['control'], json_encode($attribute['choices']), $attribute['required'] === true ? '**Mandatory** ' . $attribute['name'] : '**Optional** ' . $attribute['name']);
+                    continue;
+                }
+                $args .= sprintf("    %s: {".PHP_EOL."        control: '%s',".PHP_EOL."        description: '%s',".PHP_EOL."    },".PHP_EOL, $attribute['name'], $attribute['control'], $attribute['required'] === true ? '**Mandatory** ' . $attribute['name'] : '**Optional** ' . $attribute['name']);
             }
-            $args .= sprintf("    %s: {".PHP_EOL."        control: '%s',".PHP_EOL."        description: '%s',".PHP_EOL."    },".PHP_EOL, $attribute['name'], $attribute['control'], $attribute['required'] === true ? '**Mandatory** ' . $attribute['name'] : '**Optional** ' . $attribute['name']);
         }
         return $args;
     }
@@ -119,6 +128,9 @@ class MakeCommand
             $stories .= sprintf("export const %s = {" . PHP_EOL . "  args: {".PHP_EOL, $name);
             $stories .= sprintf("    nodeValue: '%s'," . PHP_EOL, $nodeValue);
             foreach ($data['attributes'] as $item) {
+                if ($item['required'] === true && isset($item['value'])) {
+                    $stories .= sprintf("    %s: '%s'," . PHP_EOL, $item['name'], $item['value']);
+                }
                 if ($item['control'] === 'select' && isset($item['choices'])) {
                     $stories .= sprintf("    %s: '%s',".PHP_EOL, $item['name'], $combination[array_search($item['name'], $attributes)]);
                 }

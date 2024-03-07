@@ -6,6 +6,6 @@ require __DIR__ . '/../vendor/autoload.php';
 use PicoCSS\Storybook\Command\MakeCommand;
 
 $app = new Silly\Application();
-$app->command('make', new MakeCommand());
+$app->command('make', new MakeCommand())->descriptions('Create storybook stories from YAML files', []);
 $app->setDefaultCommand('make');
 $app->run();
