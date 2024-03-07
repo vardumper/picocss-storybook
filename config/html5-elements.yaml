@@ -529,84 +529,86 @@ header:
 footer:
   description: "The footer element represents a container for the bottom section of a document or a section, typically containing information about the author, copyright information, and links to related documents."
   level: block
+  unique: false
   children:
+    - a
+    - abbr
+    - area
+    - audio
+    - b
+    - bdi
+    - bdo
+    - br
+    - cite
+    - code
+    - data
+    - dd
+    - del
+    - dfn
+    - div
+    - dl
+    - dt
+    - em
+    - embed
+    - figure
+    - figcaption
     - h1
     - h2
     - h3
     - h4
     - h5
     - h6
-    - p
-    - ul
-    - ol
-    - li
-    - dl
-    - dt
-    - dd
-    - figure
-    - figcaption
-    - pre
-    - div
-    - a
-    - em
-    - strong
-    - small
-    - s
-    - cite
-    - q
-    - dfn
-    - abbr
-    - data
-    - time
-    - code
-    - var
-    - samp
+    - i
+    - iframe
+    - img
+    - ins
+    - interactive
     - kbd
+    - li
+    - map
+    - mark
+    - object
+    - ol
+    - p
+    - param
+    - picture
+    - pre
+    - q
+    - rp
+    - rt
+    - ruby
+    - s
+    - samp
+    - small
+    - source
+    - span
+    - strong
     - sub
     - sup
-    - i
-    - b
-    - u
-    - mark
-    - ruby
-    - rt
-    - rp
-    - bdi
-    - bdo
-    - span
-    - br
-    - wbr
-    - ins
-    - del
-    - picture
-    - source
-    - img
-    - iframe
-    - embed
-    - object
-    - param
-    - video
-    - audio
-    - track
-    - map
-    - area
     - table
-    - form
-    - interactive
+    - time
+    - track
+    - u
+    - ul
+    - var
+    - video
+    - wbr
 
 address:
   description: "The address element represents the contact information for its nearest article or body ancestor. If that is the body element, then the contact information applies to the document as a whole."
   level: inline
-  text: string
+  unique: false
+  parent: article
+  unique_per_parent: true
 
 p:
   description: "The p element represents a paragraph."
   level: block
-  text: string
+  unique: false
 
 hr:
   description: "The hr element represents a thematic break between paragraph-level elements. It is typically a horizontal rule or line."
-  level: void
+  level: block
   attributes:
     align: left | center | right
     color: color
@@ -617,11 +619,12 @@ hr:
 pre:
   description: "The pre element represents preformatted text. Text within this element is typically displayed in a non-proportional font exactly as it is laid out in the file."
   level: block
-  text: string
+  unique: false
 
 blockquote:
   description: "The blockquote element represents a section that is quoted from another source. Content inside a blockquote must be quoted from another source, whose address, if it has one, may be cited in the cite attribute."
   level: block
+  unique: false
   attributes:
     cite: uri
   children:
@@ -630,6 +633,7 @@ blockquote:
 ol:
   description: "The ol element represents an ordered list of items. The order of the list is meaningful."
   level: block
+  unique: false
   attributes:
     reversed: boolean
     start: integer
@@ -640,153 +644,168 @@ ol:
 ul:
   description: "The ul element represents an unordered list of items, namely a collection of items that do not have a numerical ordering, and their order in the list is meaningless."
   level: block
+  unique: false
   children:
     - li
 
 li:
   description: "The li element represents a list item. If its parent element is an ol, ul, or menu, then the element is an item of the parent element's list, as defined for those elements. Otherwise, the list item has no defined list-related semantics."
   level: block
+  unique_per_parent: true
+  parent: ol | ul
   attributes:
     value: integer
   children:
-    - p
-    - ul
-    - ol
-    - dl
-    - figure
-    - pre
-    - div
     - a
-    - em
-    - strong
-    - small
-    - s
-    - cite
-    - q
-    - dfn
     - abbr
-    - data
-    - time
+    - cite
     - code
-    - var
-    - samp
+    - data
+    - dfn
+    - div
+    - dl
+    - em
+    - figure
+    - i
     - kbd
+    - ol
+    - p
+    - pre
+    - q
+    - s
+    - samp
+    - small
+    - strong
     - sub
     - sup
-    - i
-    - b
+    - time
+    - ul
     - u
+    - var
 
 mark:
   description: "The mark element represents a run of text in one document marked or highlighted for reference or notation purposes, due to the marked passage's relevance or importance in the enclosing context."
   level: inline
+  unique: false
   children:
-    - ruby
-    - rt
-    - rp
+    - area
+    - audio
     - bdi
     - bdo
-    - span
     - br
-    - wbr
-    - ins
     - del
-    - picture
-    - source
-    - img
-    - iframe
     - embed
+    - form
+    - iframe
+    - img
+    - ins
+    - interactive
+    - map
     - object
     - param
-    - video
-    - audio
-    - track
-    - map
-    - area
+    - picture
+    - rp
+    - rt
+    - ruby
+    - source
+    - span
     - table
-    - form
-    - interactive
+    - track
+    - video
+    - wbr
 
 dl:
   description: "The dl element represents an association list consisting of zero or more name-value groups (a description list). Each group must consist of one or more names (dt elements) followed by one or more values (dd elements). Within a single dl element, there should not be more than one dt element for each name."
   level: block
+  unique: false
   children:
-    - dt
     - dd
+    - dt
 
 dt:
   description: "The dt element represents the term, or name, part of a term-description group in a description list (dl element)."
   level: block
+  unique_per_parent: true
+  parent: dl
   text: string
 
 dd:
   description: "The dd element represents the description, definition, or value, part of a term-description group in a description list (dl element)."
   level: block
+  unique_per_parent: true
+  parent: dl
   children:
-    - p
-    - ul
-    - ol
-    - dl
-    - figure
-    - pre
-    - div
     - a
-    - em
-    - strong
-    - small
-    - s
-    - cite
-    - q
-    - dfn
     - abbr
-    - data
-    - time
-    - code
-    - var
-    - samp
-    - kbd
-    - sub
-    - sup
-    - i
+    - area
+    - audio
     - b
-    - u
-    - mark
-    - ruby
-    - rt
-    - rp
     - bdi
     - bdo
-    - span
     - br
-    - wbr
-    - ins
+    - cite
+    - code
+    - data
+    - dd
     - del
-    - picture
-    - source
-    - img
-    - iframe
+    - dfn
+    - div
+    - dl
+    - dt
+    - em
     - embed
-    - object
-    - param
-    - video
-    - audio
-    - track
-    - map
-    - area
-    - table
+    - figure
     - form
+    - i
+    - iframe
+    - img
+    - ins
     - interactive
+    - kbd
+    - li
+    - map
+    - mark
+    - object
+    - ol
+    - p
+    - param
+    - picture
+    - pre
+    - q
+    - rp
+    - rt
+    - ruby
+    - s
+    - samp
+    - small
+    - source
+    - span
+    - strong
+    - sub
+    - sup
+    - table
+    - time
+    - track
+    - u
+    - ul
+    - var
+    - video
+    - wbr
 
 figure:
   description: "The figure element represents self-contained content, potentially with an optional caption, which is specified using the (optional) figcaption element."
   level: block
+  unique: false
   children:
-    - img
     - figcaption
+    - img
 
 figcaption:
   description: "The figcaption element represents a caption or a legend associated with a figure or an illustration described by the rest of the data of the figure element. The figcaption element can be placed as the first or the last child of a parent figure element."
-  level: inline
+  level: block
+  unique: false
+  unique_per_parent: true
+  parent: figure
   text: string
 
 main:
@@ -794,147 +813,147 @@ main:
   level: "block"
   unique: true
   children:
+    - a
+    - abbr
+    - area
+    - audio
+    - b
+    - bdi
+    - bdo
+    - br
+    - cite
+    - code
+    - data
+    - dd
+    - del
+    - dfn
+    - div
+    - dl
+    - dt
+    - em
+    - embed
+    - figure
+    - form
     - h1
     - h2
     - h3
     - h4
     - h5
     - h6
-    - p
-    - ul
-    - ol
-    - li
-    - dl
-    - dt
-    - dd
-    - figure
-    - pre
-    - div
-    - a
-    - em
-    - strong
-    - small
-    - s
-    - cite
-    - q
-    - dfn
-    - abbr
-    - data
-    - time
-    - code
-    - var
-    - samp
+    - i
+    - iframe
+    - img
+    - ins
+    - interactive
     - kbd
+    - li
+    - map
+    - mark
+    - object
+    - ol
+    - p
+    - param
+    - picture
+    - pre
+    - q
+    - rp
+    - rt
+    - ruby
+    - s
+    - samp
+    - small
+    - source
+    - span
+    - strong
     - sub
     - sup
-    - i
-    - b
-    - u
-    - mark
-    - ruby
-    - rt
-    - rp
-    - bdi
-    - bdo
-    - span
-    - br
-    - wbr
-    - ins
-    - del
-    - picture
-    - source
-    - img
-    - iframe
-    - embed
-    - object
-    - param
-    - video
-    - audio
-    - track
-    - map
-    - area
     - table
-    - form
-    - interactive
+    - time
+    - track
+    - u
+    - ul
+    - var
+    - video
+    - wbr
 
 div:
   description: "The div element has no special meaning at all. It represents its children. It can be used with the class, lang, and title attributes to mark up semantics common to a group of consecutive elements."
   level: "block"
   unique: false
   children:
+    - a
+    - abbr
+    - area
+    - audio
+    - b
+    - bdi
+    - bdo
+    - br
+    - cite
+    - code
+    - data
+    - dd
+    - del
+    - dfn
+    - div
+    - dl
+    - dt
+    - em
+    - embed
+    - figure
+    - form
     - h1
     - h2
     - h3
     - h4
     - h5
     - h6
-    - p
-    - ul
-    - ol
-    - li
-    - dl
-    - dt
-    - dd
-    - figure
-    - pre
-    - div
-    - a
-    - em
-    - strong
-    - small
-    - s
-    - cite
-    - q
-    - dfn
-    - abbr
-    - data
-    - time
-    - code
-    - var
-    - samp
+    - i
+    - iframe
+    - img
+    - ins
+    - interactive
     - kbd
+    - li
+    - map
+    - mark
+    - object
+    - ol
+    - p
+    - param
+    - picture
+    - pre
+    - q
+    - rp
+    - rt
+    - ruby
+    - s
+    - samp
+    - small
+    - source
+    - span
+    - strong
     - sub
     - sup
-    - i
-    - b
-    - u
-    - mark
-    - ruby
-    - rt
-    - rp
-    - bdi
-    - bdo
-    - span
-    - br
-    - wbr
-    - ins
-    - del
-    - picture
-    - source
-    - img
-    - iframe
-    - embed
-    - object
-    - param
-    - video
-    - audio
-    - track
-    - map
-    - area
     - table
-    - form
-    - interactive
+    - time
+    - track
+    - u
+    - ul
+    - var
+    - video
+    - wbr
 
 a:
   description: "The a element represents a hyperlink, linking to another resource."
   level: "inline"
   unique: false
   attributes:
-    href: uri
-    target: browsing_context_name
     download: string
-    rel: string
+    href: uri
     hreflang: string
+    rel: string
+    target: browsing_context_name
     type: mime_type
 
 em:
@@ -1341,8 +1360,8 @@ th:
   parent: "tr"
   attributes:
     colspan: integer
-    rowspan: integer
     headers: string
+    rowspan: integer
     scope: string
 
 td:
@@ -1369,25 +1388,25 @@ form:
     novalidate: boolean
     target: browsing_context_name
   children:
-    - label
-    - input
     - button
-    - select
+    - canvas
     - datalist
-    - textarea
+    - details
+    - dialog
+    - fieldset
+    - input
+    - label
+    - legend
+    - meter
+    - noscript
     - output
     - progress
-    - meter
-    - fieldset
-    - legend
-    - details
-    - summary
-    - dialog
     - script
-    - noscript
-    - template
+    - select
     - slot
-    - canvas
+    - summary
+    - template
+    - textarea
 
 label:
   description: "The label element represents a caption in a user interface. The caption can be associated with a specific form control, known as the label element's labeled control, either using the for attribute, or by putting the form control inside the label element itself."
@@ -1429,7 +1448,7 @@ input:
     size: integer
     src: uri
     step: string
-    type: text | password | checkbox | radio | button | submit | reset | file | hidden | image | color | date | datetime-local | email | month | number | range | search | tel | time | url | week
+    type: button | checkbox | color | date | datetime-local | email | file | hidden | image | month | number | password | radio | range | reset | search | submit | tel | text | time | url | week
     value: string
     width: integer
 
@@ -1519,36 +1538,36 @@ progress:
   level: "inline"
   unique: false
   attributes:
-    value: string
     max: string
+    value: string
 
 meter:
   description: "The meter element represents a scalar measurement within a known range, or a fractional value."
   level: "inline"
   unique: false
   attributes:
-    value: string
-    min: string
-    max: string
-    low: string
     high: string
+    low: string
+    max: string
+    min: string
     optimum: string
+    value: string
 
 fieldset:
   description: "The fieldset element represents a set of form controls optionally grouped under a common name."
   level: "block"
   unique: false
   children:
-    - legend
-    - label
-    - input
     - button
-    - select
     - datalist
-    - textarea
+    - input
+    - label
+    - legend
+    - meter
     - output
     - progress
-    - meter
+    - select
+    - textarea
 
 legend:
   description: "The legend element represents a caption for the content of its parent fieldset."
@@ -1563,16 +1582,16 @@ details:
   level: "block"
   unique: false
   children:
-    - summary
-    - p
-    - ol
-    - ul
-    - li
-    - pre
-    - dl
     - div
-    - table
+    - dl
     - form
+    - li
+    - ol
+    - p
+    - pre
+    - summary
+    - table
+    - ul
 
 summary:
   description: "The summary element represents a summary, caption, or legend for the rest of the contents of the summary element's parent details element, if any."
@@ -1589,18 +1608,18 @@ dialog:
   attributes:
     open: boolean
   children:
-    - heading
-    - p
-    - ol
-    - ul
-    - li
-    - pre
-    - dl
-    - div
-    - table
-    - form
-    - interactive
     - button
+    - div
+    - dl
+    - form
+    - heading
+    - interactive
+    - li
+    - ol
+    - p
+    - pre
+    - table
+    - ul
 
 template:
   description: "The template element is a mechanism for holding client-side content that is not to be rendered when a page is loaded but may subsequently be instantiated during runtime using JavaScript."
@@ -1626,23 +1645,23 @@ slot:
   attributes:
     name: string
   children:
-    - heading
-    - p
-    - ol
-    - ul
-    - li
-    - pre
     - dl
     - div
-    - table
     - form
+    - heading
     - interactive
+    - li
+    - ol
+    - p
+    - pre
+    - table
+    - ul
 
 canvas:
   description: "The canvas element is used to draw graphics, on the fly, via scripting (usually JavaScript)."
   level: "block"
   unique: false
   attributes:
-    width: integer
     height: integer
+    width: integer
   text: string
