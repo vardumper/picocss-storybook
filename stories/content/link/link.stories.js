@@ -6,7 +6,7 @@ export default {
   render: ({ nodeValue, className,role,href,title,disabled }) => {
     const isBool = val => 'boolean' === typeof val;
     const attrMap = {'className': 'class'};
-    let getAttr = (val) => attrMap.val || val;
+    let getAttr = (val) => attrMap[val] || val;
     const el = document.createElement('a');
     el.innerHTML = nodeValue;
     if (!isBool(className)) { el.setAttribute(getAttr('className'), className); } else { if (className === true) { el.setAttribute(getAttr('className'),'className'); } }
