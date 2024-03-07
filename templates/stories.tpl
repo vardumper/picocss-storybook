@@ -8,7 +8,7 @@ export default {
     const attrMap = {'className': 'class'};
     let getAttr = (val) => attrMap[val] || val;
     const el = document.createElement('%s');
-    el.innerHTML = nodeValue;
+    if (nodeValue) { el.innerHTML = nodeValue; }
     %s
     return el;
   },

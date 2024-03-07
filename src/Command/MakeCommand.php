@@ -115,7 +115,7 @@ class MakeCommand
                 return $this->getChoiceKeyByValue($value, $data);
             }, $combination);
             $nodeValue = array_pop($combination);
-            $name = str_replace(' ', '', ucwords(implode(' ', $keys)));
+            $name = str_replace([' ','-'], '', ucwords(implode(' ', str_replace('-',' ',$keys))));
             $stories .= sprintf("export const %s = {" . PHP_EOL . "  args: {".PHP_EOL, $name);
             $stories .= sprintf("    nodeValue: '%s'," . PHP_EOL, $nodeValue);
             foreach ($data['attributes'] as $item) {
