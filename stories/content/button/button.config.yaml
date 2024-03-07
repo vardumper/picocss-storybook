@@ -1,5 +1,8 @@
 ---
 id: button
+description: The button element represents a clickable button, used to submit forms or anywhere in a document for accessible, standard button functionality.
+level: inline
+unique: false
 nodeName: button
 nodeValue: Button Text
 nodeValueChoices:
@@ -21,6 +24,10 @@ attributes:
     submit: submit
     reset: reset
 - name: disabled
+  control: boolean
+  value: false
+  required: true
+- name: autofocus
   control: boolean
   value: false
   required: true
