@@ -48,7 +48,7 @@ class MakeCommand
                 $attr = '';
                 $attrList = array_column($data['attributes'], 'name');
                 foreach($attrList as $at) {
-                    $attr .= sprintf("if (!isBool(%1\$s)) { el.setAttribute(getAttr('%1\$s'), %1\$s); } else { if (%1\$s === true) { el.setAttribute(getAttr('%1\$s'),'%1\$s'); } }\n    ", $at);
+                    $attr .= sprintf("if (!isBool(%1\$s) && %1\$s) { el.setAttribute(getAttr('%1\$s'), %1\$s); } else { if (%1\$s) { el.%1\$s = '%1\$s'; } }\n    ", $at);
                 }
 
                 $contents = sprintf(\file_get_contents(getcwd() . DIRECTORY_SEPARATOR . 'templates' . DIRECTORY_SEPARATOR . 'stories.tpl'), basename($destination), $title,  implode(',',$attrList), $data['nodeName'], $attr, $args, $stories);

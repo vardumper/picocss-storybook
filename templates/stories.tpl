@@ -4,7 +4,7 @@ export default {
   tags: ["autodocs"],
   parameters: { layout: "centered" },
   render: ({ nodeValue, %s }) => {
-    const isBool = val => 'boolean' === typeof val;
+    const isBool = val => typeof val === 'boolean';
     const attrMap = {'className': 'class'};
     let getAttr = (val) => attrMap[val] || val;
     const el = document.createElement('%s');
