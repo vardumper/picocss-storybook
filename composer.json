@@ -30,6 +30,9 @@
     "optimize-autoloader": true,
     "preferred-install": {
       "*": "dist"
+    },
+    "allow-plugins": {
+      "veewee/composer-run-parallel": true
     }
   },
   "extra": {
