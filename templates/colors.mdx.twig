@@ -1,0 +1,37 @@
+import { Title, Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Title>{{ folder }}</Title>
+
+<Meta title="{{ category }}/{{ folder }}" />
+
+<ColorPalette>
+{% for title,color in colors %}
+    {% if color.defaultId is defined and color.defaultId is not empty %}
+  <ColorItem
+    title="{{ title|capitalize }} Default"
+    subtitle="{% if color.defaultId is defined and color.defaultId is not empty %}Default {{ color.defaultId }}{% else %}{% endif %}"
+    colors={
+      {
+{% for key,value in color.colors %}
+    {% if key == color.defaultId %}
+        '{{ key|split('-')|last }} (default)': '{{ value.value }}',
+    {% endif %}
+{% endfor %}
+      }
+    }
+  />
+  {% endif %}
+
+{% for key,value in color.colors %}
+  <ColorItem
+    title="{{ key|replace({'-': ' '})|capitalize }}"
+    subtitle=""
+    colors={
+      {
+        '{{ key|split('-')|last }}{% if key == color.defaultId%} (default){% endif %}': '{{ value.value }}',
+      }
+    }
+  />
+    {% endfor %}
+  {% endfor %}
+</ColorPalette>

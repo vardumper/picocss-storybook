@@ -36,13 +36,17 @@
     "swc-loader": "^0.2.6"
   },
   "dependencies": {
+    "@etchteam/storybook-addon-status": "^4.2.4",
     "@picocss/pico": "^2.0.3",
     "@storybook/addon-a11y": "^7.6.17",
     "@whitespace/storybook-addon-html": "^5.1.6",
+    "css-declaration-sorter": "^7.1.1",
+    "postcss-scss": "^4.0.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-syntax-highlighter": "^15.5.0",
-    "sass": "^1.71.1"
+    "sass": "^1.71.1",
+    "styled-components": "^6.1.8"
   },
   "resolutions": {
     "jackspeak": "2.1.1"

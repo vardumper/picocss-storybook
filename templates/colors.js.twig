@@ -1,0 +1,54 @@
+import './../../assets/scss/colors.storybook.scss';
+import './../../../node_modules/@picocss/pico/css/pico.colors.css';
+
+export default {
+  title: '{{ category }}/{{ folder }}/{{ component }}',
+  parameters: {
+    layout: 'padded',
+    docs: { page: null }
+  },
+  render: () => {
+    const obj = {
+      {% for title,color in colors %}
+        "{{ title|capitalize }}": [
+            {% for key,value in color.colors %}
+            "{{ key }}",
+            {% endfor %}
+        ],
+      {% endfor %}
+    };
+    let str = '<div class="st-colors">';
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const colorKey in obj) {
+      // eslint-disable-next-line no-prototype-builtins
+      if (obj.hasOwnProperty(colorKey)) {
+        // add title and open list
+        str += `<p class="st-colors__title">${colorKey}</p><ul class="st-colors__list">`;
+
+        // eslint-disable-next-line no-restricted-syntax
+        for (const colorValue in obj[colorKey]) {
+          // eslint-disable-next-line no-prototype-builtins
+          if (obj[colorKey].hasOwnProperty(colorValue)) {
+            const value = `<div class="st-colors__item-value">${obj[colorKey][colorValue]}</div>`;
+
+            str += `
+        <li tabindex="0" class="st-colors__item pico-background-${obj[colorKey][colorValue]}">
+            <div class="st-colors__item-info">
+            ${value}
+            </div>
+          </li>
+          `;
+          }
+        }
+
+        // close list
+        str += `</ul></div>`;
+      }
+    }
+
+    return str;
+  }
+};
+
+export const Default = {};

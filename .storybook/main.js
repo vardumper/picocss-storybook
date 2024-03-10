@@ -14,6 +14,7 @@ const config = {
     "storybook-addon-pseudo-states",
     '@storybook/addon-a11y',
     '@whitespace/storybook-addon-html',
+    '@etchteam/storybook-addon-status',
     // "@storybook/addon-webpack5-compiler-swc",
     {
       name: "storybook-addon-sass-postcss",
@@ -42,7 +43,7 @@ const config = {
   docs: {
     toc: true,
     autodocs: "tag",
-    defaultName: "Docs",
+    defaultName: "Documentation",
     canvas: {
       sourceState: "shown",
     },

@@ -1,0 +1,11 @@
+- string
+- enum
+- boolean
+- color
+- integer
+- uri
+- script
+- browsing_context_name
+- mime_type
+- referrer_policy
+- charset

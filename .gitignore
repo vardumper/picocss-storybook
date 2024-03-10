@@ -6,3 +6,7 @@
 /storybook-static/
 /.history/
 /stories/**/*.stories.js
+/config/html5-specification.min.yaml
+/config/html5-specification.yaml
+/config/html5-specification.php
+/config/html5-unique-attribute-types.yaml

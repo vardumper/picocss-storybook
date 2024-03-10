@@ -3,9 +3,31 @@
 declare(strict_types=1);
 require __DIR__ . '/../vendor/autoload.php';
 
-use PicoCSS\Storybook\Command\MakeCommand;
+use PicoCSS\Storybook\Command\PicoCssSpecificationCommand;
+use PicoCSS\Storybook\Command\StorybookCompileCommand;
+use PicoCSS\Storybook\Command\HtmlSpecificationCommand;
+use Twig\Extension\DebugExtension;
+use Twig\Extra\Intl\IntlExtension;
+
+$twig = new \Twig\Environment(new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates'));
+$loader = new \Twig\Loader\FilesystemLoader(dirname(__FILE__) . '/../templates');
+$twig = new \Twig\Environment($loader, [
+    'debug' => true,
+    'cache' => dirname(__FILE__) . '/../.cache',
+]);
+$twig->addExtension(new DebugExtension());
+$twig->addExtension(new IntlExtension());
+
+$faker = Faker\Factory::create();
 
 $app = new Silly\Application();
-$app->command('make', new MakeCommand())->descriptions('Create storybook stories from YAML files');
+$app->command('html', new HtmlSpecificationCommand())->descriptions('Creates the HTML5 specification based on some YAML files.');
+$app->command('picocss', new PicoCssSpecificationCommand())->descriptions('Creates a custom HTML specfication for PicoCSS based on HTML and some YAML files.');
+$app->command('storybook', new StorybookCompileCommand($twig, $faker))->descriptions('Creates the Storybook components based on some YAML files.');
+$app->command('make', function () {
+    $this->runCommand('html');
+    $this->runCommand('picocss');
+    $this->runCommand('storybook');
+})->descriptions('Create the HTML specification from YAML files and builds the Storybook components.');
 $app->setDefaultCommand('make');
 $app->run();

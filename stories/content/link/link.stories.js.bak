@@ -1,0 +1,400 @@
+/**
+ * THIS FILE IS AUTO-GENERATED. DO NOT EDIT IT DIRECTLY!!!
+ * REBUILD IT WITH `bin/console make`
+ *
+ * @file link.stories.js
+ * @see link.config.yaml
+ */
+
+import "./link.scss";
+
+const isBoolean = (val) => typeof val === 'boolean';
+const attrMap = {'className': 'class'};
+const getAttr = (val) => attrMap[val] || val;
+
+const createLink = ({
+  nodeValue, className, role, href, title, disabled
+}) => {
+    let el = document.createElement('button');
+    /* if there are text or child nodes, set them */
+    if (nodeValue) {
+        el.innerHTML = nodeValue;
+    }
+    if (!isBoolean(className) && className) { el.setAttribute(getAttr('className'), className); } else { if (className) { el.className = 'className'; } }
+    if (!isBoolean(type) && type) { el.setAttribute(getAttr('type'), type); } else { if (type) { el.type = 'type'; } }
+    if (!isBoolean(disabled) && disabled) { el.setAttribute(getAttr('disabled'), disabled); } else { if (disabled) { el.disabled = 'disabled'; } }
+    return el;
+};
+
+export default {
+  title: "Content/Link",
+  tags: ["autodocs"],
+  parameters: {
+    layout: "centered"
+  },
+  render: ({ label, ...args }) => {
+    return createLink({ nodeValue, className, role, href, title, disabled, ...args });
+  },
+  argTypes: {
+    nodeValue: {
+        control: 'text',
+        description: 'The content of the link element',
+    },
+    className: {
+        control: 'select',
+        options: {"primary":"","secondary":"secondary","contrast":"contrast"},
+        description: '**Optional** className',
+    },
+    role: {
+        control: 'select',
+        options: {"default":"","button":"button"},
+        description: '**Optional** role',
+    },
+    href: {
+        control: 'text',
+        options: null,
+        description: '**Mandarory** href',
+    },
+    title: {
+        control: 'text',
+        options: null,
+        description: '**Optional** title',
+    },
+    disabled: {
+        control: 'boolean',
+        options: null,
+        description: '**Mandarory** disabled',
+    },
+  },
+};
+
+export const Default = {
+  args: {
+    nodeValue: 'Button',
+    disabled: '',
+  }
+};
+export const PrimaryButtonPrimaryDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: '',
+    type: 'button',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const PrimaryButtonPrimaryLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: '',
+    type: 'button',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const PrimaryButtonDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: '',
+    type: 'button',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const PrimaryButtonLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: '',
+    type: 'button',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const PrimarySubmitPrimaryDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: '',
+    type: 'submit',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const PrimarySubmitPrimaryLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: '',
+    type: 'submit',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const PrimarySubmitDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: '',
+    type: 'submit',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const PrimarySubmitLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: '',
+    type: 'submit',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const PrimaryResetPrimaryDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: '',
+    type: 'reset',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const PrimaryResetPrimaryLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: '',
+    type: 'reset',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const PrimaryResetDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: '',
+    type: 'reset',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const PrimaryResetLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: '',
+    type: 'reset',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const SecondaryButtonPrimaryDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'secondary',
+    type: 'button',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const SecondaryButtonPrimaryLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'secondary',
+    type: 'button',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const SecondaryButtonDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'secondary',
+    type: 'button',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const SecondaryButtonLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'secondary',
+    type: 'button',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const SecondarySubmitPrimaryDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'secondary',
+    type: 'submit',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const SecondarySubmitPrimaryLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'secondary',
+    type: 'submit',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const SecondarySubmitDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'secondary',
+    type: 'submit',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const SecondarySubmitLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'secondary',
+    type: 'submit',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const SecondaryResetPrimaryDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'secondary',
+    type: 'reset',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const SecondaryResetPrimaryLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'secondary',
+    type: 'reset',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const SecondaryResetDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'secondary',
+    type: 'reset',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const SecondaryResetLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'secondary',
+    type: 'reset',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const ContrastButtonPrimaryDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'contrast',
+    type: 'button',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const ContrastButtonPrimaryLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'contrast',
+    type: 'button',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const ContrastButtonDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'contrast',
+    type: 'button',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const ContrastButtonLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'contrast',
+    type: 'button',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const ContrastSubmitPrimaryDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'contrast',
+    type: 'submit',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const ContrastSubmitPrimaryLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'contrast',
+    type: 'submit',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const ContrastSubmitDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'contrast',
+    type: 'submit',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const ContrastSubmitLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'contrast',
+    type: 'submit',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const ContrastResetPrimaryDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'contrast',
+    type: 'reset',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const ContrastResetPrimaryLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'contrast',
+    type: 'reset',
+    disabled: '',
+    disabled: false,
+  },
+};
+export const ContrastResetDefault = {
+  args: {
+    nodeValue: 'Button',
+    className: 'contrast',
+    type: 'reset',
+    disabled: '',
+    disabled: true,
+  },
+};
+export const ContrastResetLong = {
+  args: {
+    nodeValue: 'Button with utf8 🐶, <abbr title="Hypertext Markup Language">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>',
+    className: 'contrast',
+    type: 'reset',
+    disabled: '',
+    disabled: true,
+  },
+};

@@ -1,4 +1,12 @@
 /** @type { import('@storybook/html-webpack5').StorybookConfig } */
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+} from "@storybook/blocks";
 
 import "../stories/assets/css/storybook.css";
 import "../stories/assets/js/main.js";
@@ -9,6 +17,20 @@ import "../node_modules/@picocss/pico/css/pico.css"
 
 const preview = {
   parameters: {
+    status: {
+      statuses: {
+        docs: {
+          background: "#0000ff",
+          color: "#ffffff",
+          description: "Open this component in the docs",
+        },
+        pico: {
+          background: "#0000ff",
+          color: "#ffffff",
+          description: "Open this component in the docs",
+        },
+      },
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -16,8 +38,6 @@ const preview = {
       },
     },
     docs: {
-      autodocs: "tag",
-      defaultName: "Docs",
       canvas: {
         sourceState: "shown",
       },
@@ -28,6 +48,13 @@ const preview = {
       layout: "fullscreen",
     },
     layout: "fullscreen",
+    html: {
+      prettier: {
+        tabWidth: 4,
+        useTabs: false,
+        htmlWhitespaceSensitivity: "strict",
+      },
+    },
   },
 };
 

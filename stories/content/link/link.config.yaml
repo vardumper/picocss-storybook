@@ -1,34 +1,33 @@
 ---
-id: link
-nodeName: a
-nodeValue: Link Text
-nodeValueChoices:
-  default: Link Text
-  long: "Link with utf8 \U0001F436, <abbr title=\"Hypertext Markup Language\">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>"
-attributes:
-- name: className
-  control: select
-  required: false
-  choices:
-    primary: ""
-    secondary: secondary
-    contrast: contrast
-- name: role
-  control: select
-  required: false
-  choices:
-    default: ""
-    button: button
-- name: href
-  control: text
-  required: true
-  value: "#"
-- name: title
-  control: text
-  required: false
-  value: "Link Title"
-- name: disabled
-  control: boolean
-  value: false
-  required: true
+a:
+  nodeValue: Link Text
+  nodeValueChoices:
+    default: Link Text
+    long: "Link with utf8 \U0001F436, <abbr title=\"Hypertext Markup Language\">html</abbr> and very <strong>long text</strong> and words <i>Antidisestablishmentarianism</i>"
+  attributes:
+  - name: className
+    control: select
+    required: false
+    choices:
+      primary: ""
+      secondary: secondary
+      contrast: contrast
+  - name: role
+    control: select
+    required: false
+    choices:
+      default: ""
+      button: button
+  - name: href
+    control: text
+    required: true
+    value: "#"
+  - name: title
+    control: text
+    required: false
+    value: "Link Title"
+  - name: disabled
+    control: boolean
+    value: false
+    required: true
 ...

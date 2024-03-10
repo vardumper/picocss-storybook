@@ -1,0 +1,682 @@
+accept.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+accept-charset.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+accesskey.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+action.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+action.uri:
+  type: 'uri'
+  fileType: ['html', 'htm']
+
+align.enum:
+  type: 'enum'
+  values: ['left', 'right', 'center', 'justify']
+
+allowfullscreen.boolean:
+  type: 'boolean'
+  default: false
+
+alt.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+aria-expanded.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+aria-hidden.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+aria-label.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+aria-live.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+async.boolean:
+  type: 'boolean'
+  default: false
+
+autocomplete.enum:
+  type: 'enum'
+  values: ['on', 'off']
+  default: 'on'
+
+autofocus.boolean:
+  type: 'boolean'
+  default: false
+
+autoplay.boolean:
+  type: 'boolean'
+  default: false
+
+charset.charset:
+  type: 'charset'
+
+charset.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+checked.boolean:
+  type: 'boolean'
+  default: false
+
+cite.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+cite.uri:
+  type: 'uri'
+
+class.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+clear.enum:
+  type: 'enum'
+  values: ['none', 'left', 'right', 'both']
+
+color.color:
+  type: 'color'
+
+cols.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 100
+
+colspan.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 100
+
+content.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+contenteditable.boolean:
+  type: 'boolean'
+  default: false
+
+contextmenu.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+controls.boolean:
+  type: 'boolean'
+  default: false
+
+coords.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+crossorigin.enum:
+  type: 'enum'
+  values: ['anonymous', 'use-credentials']
+
+data.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+data.uri:
+  type: 'uri'
+
+datetime.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+decoding.enum:
+  type: 'enum'
+  values: ['sync', 'async', 'auto']
+
+default.boolean:
+  type: 'boolean'
+  default: false
+
+defer.boolean:
+  type: 'boolean'
+  default: false
+
+dir.enum:
+  type: 'enum'
+  values: ['ltr', 'rtl', 'auto']
+
+dirname.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+disabled.boolean:
+  type: 'boolean'
+  default: false
+
+download.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+draggable.boolean:
+  type: 'boolean'
+  default: false
+
+dropzone.enum:
+  type: 'enum'
+  values: ['copy', 'move', 'link']
+
+dummy.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+enctype.enum:
+  type: 'enum'
+  values: ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']
+
+for.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+form.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+form.uri:
+  type: 'uri'
+
+formaction.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+formaction.uri:
+  type: 'uri'
+
+formenctype.enum:
+  type: 'enum'
+  values: ['application/x-www-form-urlencoded', 'multipart/form-data', 'text/plain']
+
+formmethod.enum:
+  type: 'enum'
+  values: ['get', 'post']
+
+formnovalidate.boolean:
+  type: 'boolean'
+  default: false
+
+formtarget.browsing_context_name:
+  type: 'browsing_context_name'
+
+formtarget.enum:
+  type: 'enum'
+  values: ['_self', '_blank', '_parent', '_top']
+
+headers.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+height.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 1000
+
+height.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+hidden.boolean:
+  type: 'boolean'
+  default: false
+
+high.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+href.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+href.uri:
+  type: 'uri'
+
+hreflang.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+http-equiv.enum:
+  type: 'enum'
+  values: ['content-type', 'default-style', 'refresh']
+
+http-equiv.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+integrity.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+ismap.boolean:
+  type: 'boolean'
+  default: false
+
+kind.enum:
+  type: 'enum'
+  values: ['subtitles', 'captions', 'descriptions', 'chapters', 'metadata']
+
+label.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+lang.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+list.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+loop.boolean:
+  type: 'boolean'
+  default: false
+
+low.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+manifest.uri:
+  type: 'uri'
+
+max.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+maxlength.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 1000
+
+media.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+method.enum:
+  type: 'enum'
+  values: ['get', 'post']
+
+min.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+minlength.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 1000
+
+multiple.boolean:
+  type: 'boolean'
+  default: false
+
+muted.boolean:
+  type: 'boolean'
+  default: false
+
+name.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+nonce.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+noshade.boolean:
+  type: 'boolean'
+  default: false
+
+novalidate.boolean:
+  type: 'boolean'
+  default: false
+
+onafterprint.script:
+  type: 'script'
+
+onbeforeprint.script:
+  type: 'script'
+
+onbeforeunload.script:
+  type: 'script'
+
+onclick.script:
+  type: 'script'
+
+oncontextmenu.script:
+  type: 'script'
+
+ondblclick.script:
+  type: 'script'
+
+onhashchange.script:
+  type: 'script'
+
+onlanguagechange.script:
+  type: 'script'
+
+onmessage.script:
+  type: 'script'
+
+onmessageerror.script:
+  type: 'script'
+
+onmousedown.script:
+  type: 'script'
+
+onmouseenter.script:
+  type: 'script'
+
+onmouseleave.script:
+  type: 'script'
+
+onmousemove.script:
+  type: 'script'
+
+onmouseout.script:
+  type: 'script'
+
+onmouseover.script:
+  type: 'script'
+
+onmouseup.script:
+  type: 'script'
+
+onoffline.script:
+  type: 'script'
+
+ononline.script:
+  type: 'script'
+
+onpagehide.script:
+  type: 'script'
+
+onpageshow.script:
+  type: 'script'
+
+onpopstate.script:
+  type: 'script'
+
+onrejectionhandled.script:
+  type: 'script'
+
+onstorage.script:
+  type: 'script'
+
+onunhandledrejection.script:
+  type: 'script'
+
+onunload.script:
+  type: 'script'
+
+open.boolean:
+  type: 'boolean'
+  default: false
+
+optimum.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+pattern.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+placeholder.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+poster.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+poster.uri:
+  type: 'uri'
+
+preload.enum:
+  type: 'enum'
+  values: ['none', 'metadata', 'auto']
+  default: 'auto'
+
+readonly.boolean:
+  type: 'boolean'
+  default: false
+
+referrerpolicy.enum:
+  type: 'enum'
+  values: ['no-referrer', 'no-referrer-when-downgrade', 'origin', 'origin-when-cross-origin', 'same-origin', 'strict-origin', 'strict-origin-when-cross-origin', 'unsafe-url']
+  default: 'no-referrer'
+
+referrerpolicy.referrer_policy:
+  type: 'referrer_policy'
+  default: 'no-referrer'
+
+rel.enum:
+  type: 'enum'
+  values: ['alternate', 'author', 'bookmark', 'external', 'help', 'license', 'next', 'nofollow', 'noreferrer', 'noopener', 'prev', 'search', 'tag']
+  default: 'stylesheet'
+
+rel.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+required.boolean:
+  type: 'boolean'
+  default: false
+
+reversed.boolean:
+  type: 'boolean'
+  default: false
+
+rows.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 100
+
+rowspan.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 100
+
+sandbox.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+scheme.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+scope.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+scoped.boolean:
+  type: 'boolean'
+  default: false
+
+seamless.boolean:
+  type: 'boolean'
+  default: false
+
+selected.boolean:
+  type: 'boolean'
+  default: false
+
+shape.enum:
+  type: 'enum'
+  values: ['default', 'rect', 'circle', 'poly']
+  default: 'rect'
+
+size.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 1000
+
+sizes.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+span.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 1000
+
+spellcheck.boolean:
+  type: 'boolean'
+  default: false
+
+src.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+src.uri:
+  type: 'uri'
+
+srcdoc.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+srclang.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+srcset.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+start.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 1000
+
+step.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+target.browsing_context_name:
+  type: 'browsing_context_name'
+
+target.enum:
+  type: 'enum'
+  values: ['_self', '_blank', '_parent', '_top']
+  default: '_self'
+
+text.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+title.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+translate.enum:
+  type: 'enum'
+  values: ['yes', 'no']
+  default: 'yes'
+
+type.mime_type:
+  type: 'mime_type'
+
+type.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+usemap.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+usemap.uri:
+  type: 'uri'
+
+value.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 1000
+
+value.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+width.integer:
+  type: 'integer'
+  minValue: 1
+  maxValue: 1000
+
+width.string:
+  type: 'string'
+  minLength: 1
+  maxLength: 255
+
+wrap.enum:
+  type: 'enum'
+  values: ['soft', 'off', 'hard']
+  default: 'soft'
