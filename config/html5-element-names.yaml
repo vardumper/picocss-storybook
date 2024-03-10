@@ -1,0 +1,111 @@
+a: Anchor
+abbr: Abbreviation
+address: Address
+area: Area
+article: Article
+aside: Aside
+audio: Audio
+b: Bold
+base: Base
+bdi: 'Bidirectional Isolation'
+bdo: 'Bidirectional Override'
+blockquote: Blockquote
+body: Body
+br: Break
+button: Button
+canvas: Canvas
+caption: Caption
+cite: Citation
+code: Code
+col: Column
+colgroup: 'Column Group'
+data: Data
+datalist: Datalist
+dd: 'Definition Description'
+del: 'Deleted Text'
+details: Details
+dfn: Definition
+dialog: Dialog
+div: Division
+dl: 'Definition List'
+dt: 'Definition Term'
+em: Emphasis
+embed: Embed
+fieldset: Fieldset
+figcaption: 'Figure Caption'
+figure: Figure
+footer: Footer
+form: Form
+h1: 'Heading 1'
+h2: 'Heading 2'
+h3: 'Heading 3'
+h4: 'Heading 4'
+h5: 'Heading 5'
+h6: 'Heading 6'
+head: Head
+header: Header
+hgroup: 'Headings Group'
+hr: 'Horizontal Rule'
+html: HTML
+i: Italic
+iframe: 'Inline Frame'
+img: Image
+input: Input
+ins: 'Inserted Text'
+kbd: 'Keyboard Input'
+label: Label
+legend: Legend
+li: 'List Item'
+link: Link
+main: Main
+map: Map
+mark: 'Marked Text'
+meta: Meta
+meter: Meter
+nav: Navigation
+noscript: NoScript
+object: Object
+ol: 'Ordered List'
+optgroup: 'Option Group'
+option: Option
+output: Output
+p: Paragraph
+param: Parameter
+picture: Picture
+pre: 'Preformatted Text'
+progress: Progress
+q: Quotation
+rp: 'Ruby Parenthesis'
+rt: 'Ruby Text'
+ruby: Ruby
+s: Strikethrough
+samp: 'Sample Output'
+script: Script
+section: Section
+select: Select
+small: Small
+source: Source
+span: Span
+strong: Strong
+style: Style
+sub: Subscript
+summary: Summary
+sup: Superscript
+svg: 'Scalable Vector Graphics'
+table: Table
+tbody: 'Table Body'
+td: 'Table Data'
+template: Template
+textarea: Textarea
+tfoot: 'Table Foot'
+th: 'Table Header'
+thead: 'Table Head'
+time: Time
+title: Title
+tr: 'Table Row'
+track: Track
+u: Underline
+ul: 'Unordered List'
+var: Variable
+video: Video
+wbr: 'Word Break Opportunity'

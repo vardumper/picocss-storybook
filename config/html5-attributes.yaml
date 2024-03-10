@@ -1,237 +1,1025 @@
-attributes:
-  accesskey:
-    description: "Specifies a shortcut key to activate or focus on the element."
-    type: string
-  class:
-    description: "Specifies one or more class names for an element (refers to a class in a style sheet)."
-    type: string
-  contenteditable:
-    description: "Specifies whether the content of an element is editable."
-    type: boolean
-  contextmenu:
-    description: "Specifies a context menu for an element. The menu appears when a user right-clicks on the element."
-    type: string
-  dir:
-    description: "Specifies the text direction for the content in an element. Possible values: 'ltr' (left-to-right), 'rtl' (right-to-left), 'auto'."
-    type: ltr | rtl | auto
-  draggable:
-    description: "Specifies whether an element is draggable or not."
-    type: boolean
-  dropzone:
-    description: "Specifies whether the dragged data can be copied, moved, or linked when dropped. Possible values: 'copy', 'move', 'link'."
-    type: copy | move | link
-  hidden:
-    description: "Specifies whether an element is hidden or not. A hidden element is not displayed."
-    type: boolean
-  id:
-    description: "Specifies a unique id for an element. Used to identify the element in a document."
-    type: string
-  lang:
-    description: "Specifies the language of the element's content."
-    type: string
-  spellcheck:
-    description: "Specifies whether the element should have its spelling and grammar checked or not."
-    type: boolean
-  style:
-    description: "Specifies inline CSS styles for an element."
-    type: string
-  tabindex:
-    description: "Specifies the tab order of an element. Used to determine the order in which elements receive focus when navigating with the 'Tab' key."
-    type: integer
-  title:
-    description: "Specifies extra information about an element. Typically displayed as a tooltip when the mouse hovers over the element."
-    type: string
-  translate:
-    description: "Specifies whether the content of an element should be translated or not."
-    type: yes | no
-
-event_attributes:
-  onabort:
-    description: "Event handler triggered when an element's loading is aborted."
-    type: script
-  onauxclick:
-    description: "Event handler triggered when a pointing device button other than the primary one is clicked."
-    type: script
-  onblur:
-    description: "Event handler triggered when an element loses focus."
-    type: script
-  oncancel:
-    description: "Event handler triggered when an action is canceled."
-    type: script
-  oncanplay:
-    description: "Event handler triggered when enough of the media resource has been downloaded to start playing."
-    type: script
-  oncanplaythrough:
-    description: "Event handler triggered when the media can be played through to the end without buffering."
-    type: script
-  onchange:
-    description: "Event handler triggered when the value of an element changes."
-    type: script
-  onclick:
-    description: "Event handler triggered when an element is clicked."
-    type: script
-  onclose:
-    description: "Event handler triggered when a user closes a document or view."
-    type: script
-  oncontextmenu:
-    description: "Event handler triggered when a context menu is triggered."
-    type: script
-  oncuechange:
-    description: "Event handler triggered when the cue changes in a <track> element."
-    type: script
-  ondblclick:
-    description: "Event handler triggered when an element is double-clicked."
-    type: script
-  ondrag:
-    description: "Event handler triggered when an element or text selection is being dragged."
-    type: script
-  ondragend:
-    description: "Event handler triggered at the end of a drag operation."
-    type: script
-  ondragenter:
-    description: "Event handler triggered when an element or text selection enters a valid drop target during a drag operation."
-    type: script
-  ondragexit:
-    description: "Event handler triggered when an element or text selection exits a valid drop target during a drag operation."
-    type: script
-  ondragleave:
-    description: "Event handler triggered when an element or text selection leaves a valid drop target during a drag operation."
-    type: script
-  ondragover:
-    description: "Event handler triggered when an element or text selection is being dragged over a valid drop target."
-    type: script
-  ondragstart:
-    description: "Event handler triggered at the start of a drag operation."
-    type: script
-  ondrop:
-    description: "Event handler triggered when an element or text selection is dropped on a valid drop target."
-    type: script
-  ondurationchange:
-    description: "Event handler triggered when the duration property of a media element changes."
-    type: script
-  onemptied:
-    description: "Event handler triggered when a media element's readyState changes to 'empty'."
-    type: script
-  onended:
-    description: "Event handler triggered when a media element has reached the end of playback."
-    type: script
-  onerror:
-    description: "Event handler triggered when an error occurs during the loading of an element or a resource."
-    type: script
-  onfocus:
-    description: "Event handler triggered when an element receives focus."
-    type: script
-  onformdata:
-    description: "Event handler triggered when a FormData object is sent."
-    type: script
-  oninput:
-    description: "Event handler triggered when the value of an element is changed by the user."
-    type: script
-  oninvalid:
-    description: "Event handler triggered when an element is invalid."
-    type: script
-  onkeydown:
-    description: "Event handler triggered when a key is pressed down."
-    type: script
-  onkeypress:
-    description: "Event handler triggered when a key is pressed and released."
-    type: script
-  onkeyup:
-    description: "Event handler triggered when a key is released."
-    type: script
-  onlanguagechange:
-    description: "Event handler triggered when the user changes the document's language."
-    type: script
-  onload:
-    description: "Event handler triggered when an element has finished loading."
-    type: script
-  onloadeddata:
-    description: "Event handler triggered when the first frame of the media has finished loading."
-    type: script
-  onloadedmetadata:
-    description: "Event handler triggered when metadata for the media has been loaded."
-    type: script
-  onloadstart:
-    description: "Event handler triggered when the user agent begins looking for media data."
-    type: script
-  onmousedown:
-    description: "Event handler triggered when a pointing device button is pressed down over an element."
-    type: script
-  onmouseenter:
-    description: "Event handler triggered when a pointing device is moved onto an element."
-    type: script
-  onmouseleave:
-    description: "Event handler triggered when a pointing device is moved away from an element."
-    type: script
-  onmousemove:
-    description: "Event handler triggered when a pointing device is moved over an element."
-    type: script
-  onmouseout:
-    description: "Event handler triggered when a pointing device is moved off an element."
-    type: script
-  onmouseover:
-    description: "Event handler triggered when a pointing device is moved onto an element."
-    type: script
-  onmouseup:
-    description: "Event handler triggered when a pointing device button is released."
-    type: script
-  onpause:
-    description: "Event handler triggered when a media element is paused."
-    type: script
-  onplay:
-    description: "Event handler triggered when a media element is ready to begin playback."
-    type: script
-  onplaying:
-    description: "Event handler triggered when playback has started."
-    type: script
-  onprogress:
-    description: "Event handler triggered while the user agent is fetching the media data."
-    type: script
-  onratechange:
-    description: "Event handler triggered when the playback rate changes."
-    type: script
-  onreset:
-    description: "Event handler triggered when a form is reset."
-    type: script
-  onresize:
-    description: "Event handler triggered when the window or an element is resized."
-    type: script
-  onscroll:
-    description: "Event handler triggered when an element's scrollbar is being scrolled."
-    type: script
-  onsecuritypolicyviolation:
-    description: "Event handler triggered when a security policy is violated."
-    type: script
-  onseeked:
-    description: "Event handler triggered when a media element has finished seeking."
-    type: script
-  onseeking:
-    description: "Event handler triggered when a media element is seeking a new position."
-    type: script
-  onselect:
-    description: "Event handler triggered when the user selects text in an element."
-    type: script
-  onslotchange:
-    description: "Event handler triggered when the assigned nodes of a <slot> element changes."
-    type: script
-  onstalled:
-    description: "Event handler triggered when a media element has stalled."
-    type: script
-  onsubmit:
-    description: "Event handler triggered when a form is submitted."
-    type: script
-  onsuspend:
-    description: "Event handler triggered when the loading of a media element is suspended."
-    type: script
-  ontimeupdate:
-    description: "Event handler triggered when the playback position changes."
-    type: script
-  ontoggle:
-    description: "Event handler triggered when the user opens or closes a <details> element."
-    type: script
-  onvolumechange:
-    description: "Event handler triggered when the volume has changed."
-    type: script
-  onwaiting:
-    description: "Event handler triggered when a media element is waiting for data."
-    type: script
+accept:
+  description: 'Specifies a comma-separated list of file types that the server accepts.'
+  type: string
+  elements:
+    - form
+    - input
+accept-charset:
+  description: 'Specifies the character encodings that are to be used for form submission.'
+  type: string
+  elements:
+    - form
+accesskey:
+  description: 'Specifies a shortcut key to activate or focus on the element.'
+  type: string
+action:
+  description: 'Specifies the URL where the form data should be submitted when the form is submitted.'
+  type: string
+  elements:
+    - form
+align:
+  description: 'Specifies the horizontal alignment of the element.'
+  type: enum
+  choices:
+    - center
+    - justify
+    - left
+    - right
+  elements:
+    - caption
+    - col
+    - colgroup
+    - hr
+    - iframe
+    - img
+    - table
+    - tbody
+    - td
+    - tfoot
+    - th
+    - thead
+    - tr
+allowfullscreen:
+  description: 'Enables the iframe to be displayed in fullscreen mode.'
+  type: boolean
+  elements:
+    - iframe
+alt:
+  description: 'Specifies alternative text to be displayed when the image cannot be rendered.'
+  type: string
+  required: true
+  elements:
+    - area
+    - img
+aria-expanded:
+  description: 'Indicates whether a group of elements, collapsible content for example, is currently expanded or collapsed.'
+  type: string
+aria-hidden:
+  description: 'Indicates whether the element is perceivable or not.'
+  type: string
+aria-label:
+  description: 'Provides a readable text description of the element.'
+  type: string
+aria-live:
+  description: 'Indicates that an element will be updated, and describes the types of updates the user agents, assistive technologies, and user should expect.'
+  type: string
+async:
+  description: 'When present, it specifies that the script will be executed asynchronously as soon as it is available.'
+  type: boolean
+  elements:
+    - script
+autocomplete:
+  type: enum
+  choices:
+    - 'off'
+    - 'on'
+autofocus:
+  description: 'When present, it specifies that an element should automatically get focus when the page loads.'
+  type: boolean
+  elements:
+    - a
+    - area
+    - button
+    - details
+    - iframe
+    - input
+    - object
+    - select
+    - textarea
+autoplay:
+  description: 'When present, it specifies that the audio or video will automatically start playing as soon as it can do so without stopping.'
+  type: boolean
+  elements:
+    - audio
+    - video
+charset:
+  description: 'Specifies the character encoding for the resource.'
+  type: string
+  elements:
+    - link
+    - meta
+    - script
+checked:
+  description: 'When present, it indicates that an input element should be pre-selected (checked) when the page loads.'
+  type: boolean
+  elements:
+    - input
+cite:
+  description: 'Specifies the URL of the cited work or the name of the cited creative work.'
+  type: string
+  elements:
+    - blockquote
+    - del
+    - ins
+    - q
+class:
+  description: 'Specifies one or more class names for an element (refers to a class in a style sheet).'
+  type: string
+clear:
+  type: enum
+  choices:
+    - all
+    - left
+    - none
+    - right
+color:
+  type: color
+cols:
+  description: 'Specifies the visible width of a text area, in average character widths.'
+  type: integer
+  elements:
+    - textarea
+colspan:
+  description: 'Specifies the number of columns a table cell should span.'
+  type: integer
+  elements:
+    - td
+    - th
+content:
+  description: 'Specifies the value associated with the http-equiv or name attribute.'
+  type: string
+  elements:
+    - meta
+contenteditable:
+  description: 'When present, it specifies whether the content of an element is editable.'
+  type: boolean
+contextmenu:
+  description: 'Specifies a context menu for an element. The menu appears when a user right-clicks on the element.'
+  type: string
+controls:
+  description: 'When present, it specifies that audio or video controls should be displayed (such as play, pause, and volume).'
+  type: boolean
+  elements:
+    - audio
+    - video
+coords:
+  description: 'Specifies the coordinates of the shape in a rectangular area or a polygonal area on an image map.'
+  type: string
+  elements:
+    - area
+crossorigin:
+  type: enum
+  choices:
+    - anonymous
+    - use-credentials
+data:
+  description: 'Specifies the address of the external data that the object requires.'
+  type: string
+  elements:
+    - object
+datetime:
+  description: "Specifies the date and time of the change in the format 'YYYY-MM-DDThh:mm:ss' or a subset of it."
+  type: string
+  elements:
+    - del
+    - ins
+    - time
+decoding:
+  description: 'Specifies the decoding process applied to the image.'
+  type: enum
+  choices:
+    - async
+    - auto
+    - sync
+  elements:
+    - img
+default:
+  description: 'Specifies that the track should be enabled by default when the page loads.'
+  type: boolean
+  elements:
+    - track
+defer:
+  description: 'When present, it specifies that the script should be executed after the page has been parsed.'
+  type: boolean
+  elements:
+    - script
+dir:
+  description: 'Specifies the text direction for the content in an element.'
+  type: enum
+  choices:
+    - auto
+    - ltr
+    - rtl
+dirname:
+  description: 'Specifies the direction of the text.'
+  type: string
+  elements:
+    - input
+    - textarea
+disabled:
+  description: 'When present, it specifies that an input element should be disabled.'
+  type: boolean
+  elements:
+    - button
+    - fieldset
+    - input
+    - optgroup
+    - option
+    - select
+    - textarea
+download:
+  description: 'Indicates that the linked content should be downloaded rather than displayed.'
+  type: string
+  elements:
+    - a
+    - area
+draggable:
+  description: 'When present, it specifies that an element is draggable and can be moved by the user.'
+  type: boolean
+  elements:
+    - a
+    - audio
+    - canvas
+    - div
+    - iframe
+    - img
+    - p
+    - span
+    - video
+dropzone:
+  description: 'Specifies whether the dragged data can be copied, moved, or linked when dropped.'
+  type: enum
+  choices:
+    - copy
+    - link
+    - move
+dummy:
+  type: string
+enctype:
+  type: enum
+  choices:
+    - application/x-www-form-urlencoded
+    - multipart/form-data
+    - text/plain
+for:
+  description: 'Refers to the <datalist> element that contains the options for an input element.'
+  type: string
+  elements:
+    - label
+    - output
+form:
+  description: 'Associates the element with a form to override the default form owner.'
+  type: string
+  elements:
+    - button
+    - fieldset
+    - input
+    - label
+    - select
+    - textarea
+formaction:
+  description: 'Specifies the URL to which the form data should be submitted when the form is submitted.'
+  type: string
+  elements:
+    - button
+    - input
+formenctype:
+  description: 'Specifies the encoding type for form data when the form is submitted.'
+  type: enum
+  choices:
+    - application/x-www-form-urlencoded
+    - multipart/form-data
+    - text/plain
+  elements:
+    - button
+    - input
+formmethod:
+  description: 'Specifies the HTTP method to be used when the form data is submitted.'
+  type: enum
+  choices:
+    - get
+    - post
+  elements:
+    - button
+    - input
+formnovalidate:
+  description: "When present, it specifies that a form's data should not be validated when submitted."
+  type: boolean
+  elements:
+    - button
+    - input
+formtarget:
+  description: 'Specifies where to display the response after submitting the form.'
+  type: enum
+  choices:
+    - _blank
+    - _parent
+    - _self
+    - _top
+  elements:
+    - button
+    - input
+headers:
+  description: 'Specifies a list of header cells that represent the header for the cell.'
+  type: string
+  elements:
+    - td
+    - th
+height:
+  description: 'Specifies the height of the element. The meaning may vary depending on the element type. Accepts integers, pixels (px), and percentages (%).'
+  type: string
+  elements:
+    - canvas
+    - embed
+    - iframe
+    - img
+    - input
+    - object
+    - video
+hidden:
+  description: 'When present, it specifies that an element is not yet, or is no longer, relevant.'
+  type: boolean
+  elements:
+    - any
+high:
+  description: 'Specifies the high value for a range input or a meter element.'
+  type: string
+  elements:
+    - input
+    - meter
+href:
+  description: 'Specifies the URL of the linked resource. Special protocols such as mailto: or tel: can be used.'
+  type: string
+  required: true
+  elements:
+    - a
+    - area
+    - base
+    - link
+hreflang:
+  description: 'Specifies the language of the linked resource.'
+  type: string
+  elements:
+    - a
+    - area
+    - link
+http-equiv:
+  description: 'Provides an HTTP header for the information/value of the content attribute.'
+  type: enum
+  choices:
+    - content-language
+    - content-type
+    - default-style
+    - refresh
+  elements:
+    - meta
+integrity:
+  description: 'Specifies the integrity value of a resource.'
+  type: string
+  elements:
+    - link
+    - script
+ismap:
+  description: 'Specifies that an area should be part of an image map.'
+  type: boolean
+  elements:
+    - area
+kind:
+  type: enum
+  choices:
+    - captions
+    - chapters
+    - descriptions
+    - metadata
+    - subtitles
+label:
+  description: 'Specifies a label for the associated form control, option group, or option.'
+  type: string
+  elements:
+    - label
+    - optgroup
+    - option
+lang:
+  description: "Specifies the language of the element's content."
+  type: string
+list:
+  description: 'Refers to a <datalist> element that contains pre-defined options for an input element.'
+  type: string
+  elements:
+    - input
+loop:
+  description: 'When present, it specifies that the audio or video will start over again every time it is finished.'
+  type: boolean
+  elements:
+    - audio
+    - video
+low:
+  description: 'Specifies the low value for a range input.'
+  type: string
+  elements:
+    - input
+    - meter
+manifest:
+  description: "Specifies the address of the document's cache manifest."
+  type: uri
+  elements:
+    - html
+max:
+  description: 'Specifies the maximum value for an input element, meter, or progress element.'
+  type: string
+  elements:
+    - input
+    - meter
+    - progress
+maxlength:
+  description: 'Specifies the maximum number of characters allowed in an input field.'
+  type: integer
+  elements:
+    - input
+    - textarea
+media:
+  description: 'Specifies the media type for which the linked resource or style sheet is intended.'
+  type: string
+  elements:
+    - link
+    - source
+    - style
+method:
+  type: enum
+  choices:
+    - get
+    - post
+min:
+  description: 'Specifies the minimum value for an input element or a meter element.'
+  type: string
+  elements:
+    - input
+    - meter
+minlength:
+  description: 'Specifies the minimum number of characters required in an input field.'
+  type: integer
+  elements:
+    - input
+    - textarea
+multiple:
+  description: 'When present, it specifies that the user is allowed to enter more than one value in an input element.'
+  type: boolean
+  elements:
+    - input
+    - select
+    - textarea
+muted:
+  description: 'When present, it specifies that the audio output of the video should be muted.'
+  type: boolean
+  elements:
+    - audio
+    - video
+name:
+  description: 'Specifies the name associated with the element. The meaning may vary depending on the context.'
+  type: string
+  elements:
+    - a
+    - button
+    - fieldset
+    - form
+    - iframe
+    - input
+    - map
+    - meta
+    - object
+    - param
+    - select
+    - textarea
+nonce:
+  description: 'Specifies a cryptographic nonce that can be used in Content Security Policy (CSP) checks.'
+  type: string
+  elements:
+    - script
+    - style
+noshade:
+  type: boolean
+novalidate:
+  description: 'When present, it specifies that a form should not be validated when submitted.'
+  type: boolean
+  elements:
+    - form
+onafterprint:
+  description: 'Fires after the associated document has started printing or the print preview has been closed.'
+  type: script
+  elements:
+    - body
+onbeforeprint:
+  description: 'Fires before the associated document is printed or previewed for printing.'
+  type: script
+  elements:
+    - body
+onbeforeunload:
+  description: 'Fires before the user navigates away from the page.'
+  type: script
+  elements:
+    - body
+onclick:
+  description: 'Fires when the user clicks on an element.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+oncontextmenu:
+  description: 'Fires when the user right-clicks to open the context menu.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+ondblclick:
+  description: 'Fires when the user double-clicks on an element.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+onhashchange:
+  description: 'Fires when the fragment identifier part of the URL changes.'
+  type: script
+  elements:
+    - body
+onlanguagechange:
+  description: 'Fires when the user changes the preferred language of the user interface.'
+  type: script
+  elements:
+    - body
+onmessage:
+  description: 'Fires when a message is received from a different browsing context (e.g., an iframe).'
+  type: script
+  elements:
+    - body
+onmessageerror:
+  description: 'Fires when an error occurs while receiving a message from a different browsing context.'
+  type: script
+  elements:
+    - body
+onmousedown:
+  description: 'Fires when the user presses the mouse button over an element.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+onmouseenter:
+  description: 'Fires when the mouse pointer enters the element.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+onmouseleave:
+  description: 'Fires when the mouse pointer leaves the element.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+onmousemove:
+  description: 'Fires when the mouse pointer is moved over an element.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+onmouseout:
+  description: 'Fires when the mouse pointer leaves an element or its child elements.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+onmouseover:
+  description: 'Fires when the mouse pointer enters an element or its child elements.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+onmouseup:
+  description: 'Fires when the user releases the mouse button over an element.'
+  type: script
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - embed
+    - input
+    - label
+    - select
+    - textarea
+    - video
+onoffline:
+  description: 'Fires when the browser goes offline.'
+  type: script
+  elements:
+    - body
+ononline:
+  description: 'Fires when the browser goes online.'
+  type: script
+  elements:
+    - body
+onpagehide:
+  description: 'Fires when the user navigates away from a page.'
+  type: script
+  elements:
+    - body
+onpageshow:
+  description: 'Fires when the user navigates to a page.'
+  type: script
+  elements:
+    - body
+onpopstate:
+  description: "Fires when the user navigates through the history by clicking the browser's Back or Forward buttons."
+  type: script
+  elements:
+    - body
+onrejectionhandled:
+  description: 'Fires when a Promise is rejected and the rejection is handled by a Promise handler (e.g., catch).'
+  type: script
+  elements:
+    - body
+onstorage:
+  description: 'Fires when a storage area (e.g., localStorage or sessionStorage) changes.'
+  type: script
+  elements:
+    - body
+onunhandledrejection:
+  description: 'Fires when a Promise is rejected but there is no rejection handler (e.g., catch).'
+  type: script
+  elements:
+    - body
+onunload:
+  description: 'Fires when the user is navigating away from the page (similar to onbeforeunload).'
+  type: script
+  elements:
+    - body
+open:
+  description: 'When present, it specifies that the details should be visible (open) to the user.'
+  type: boolean
+  elements:
+    - details
+optimum:
+  description: 'Specifies the optimal value for a gauge or progress element.'
+  type: string
+  elements:
+    - meter
+    - progress
+pattern:
+  description: "Specifies a regular expression that the <input> element's value is checked against."
+  type: string
+  elements:
+    - input
+placeholder:
+  description: 'Specifies a short hint that describes the expected value of an input field.'
+  type: string
+  elements:
+    - input
+    - textarea
+poster:
+  description: "Specifies the URL of an image to be displayed as the video's poster (thumbnail) image."
+  type: string
+  elements:
+    - video
+preload:
+  type: enum
+  choices:
+    - auto
+    - metadata
+    - none
+readonly:
+  description: 'When present, it specifies that an input element is read-only.'
+  type: boolean
+  elements:
+    - input
+    - textarea
+referrerpolicy:
+  description: 'Specifies the referrer policy for fetches initiated by the element.'
+  type: enum
+  choices:
+    - no-referrer
+    - no-referrer-when-downgrade
+    - origin
+    - origin-when-cross-origin
+    - same-origin
+    - strict-origin
+    - strict-origin-when-cross-origin
+    - unsafe-url
+  elements:
+    - a
+    - area
+    - iframe
+    - img
+    - link
+rel:
+  description: 'Specifies the relationship between the current document and the linked document.'
+  type: enum
+  choices:
+    - alternate
+    - author
+    - bookmark
+    - canonical
+    - help
+    - icon
+    - license
+    - next
+    - nofollow
+    - noreferrer
+    - prefetch
+    - prev
+    - search
+    - stylesheet
+    - tag
+  elements:
+    - a
+    - area
+    - link
+required:
+  description: 'When present, it specifies that an input field must be filled out before submitting the form.'
+  type: boolean
+  elements:
+    - input
+    - select
+    - textarea
+reversed:
+  description: 'When present, it specifies that the list order should be descending (9,8,7...).'
+  type: boolean
+  elements:
+    - ol
+rows:
+  description: 'Specifies the visible number of lines in a text area.'
+  type: integer
+  elements:
+    - textarea
+rowspan:
+  description: 'Specifies the number of rows a table cell should span.'
+  type: integer
+  elements:
+    - td
+    - th
+sandbox:
+  type: string
+scheme:
+  description: 'Specifies the content type of the value attribute when the http-equiv attribute is used.'
+  type: string
+  elements:
+    - meta
+scope:
+  description: 'Specifies the set of header cells a data cell belongs to.'
+  type: string
+  elements:
+    - td
+scoped:
+  description: "When present, it specifies that the styles only apply to this element's parent and its child elements."
+  type: boolean
+  elements:
+    - style
+seamless:
+  description: 'When present, it specifies that the iframe should look like it is a part of the containing document (no borders or scrollbars).'
+  type: boolean
+  elements:
+    - iframe
+selected:
+  description: 'When present, it specifies that an option should be pre-selected when the page loads.'
+  type: boolean
+  elements:
+    - option
+shape:
+  type: enum
+  choices:
+    - circle
+    - default
+    - poly
+    - rect
+size:
+  description: 'Specifies the height of a hr element in pixels.'
+  type: integer
+  elements:
+    - hr
+sizes:
+  description: 'Specifies the sizes of the images or icons for different display/window sizes.'
+  type: string
+  elements:
+    - img
+    - link
+    - source
+span:
+  description: 'Specifies the number of columns the <col> element should span in a table.'
+  type: integer
+  elements:
+    - col
+spellcheck:
+  description: 'Specifies whether the element should have its spelling and grammar checked or not.'
+  type: boolean
+src:
+  description: 'Specifies the URL of the external resource to be embedded or referenced.'
+  type: string
+  elements:
+    - audio
+    - embed
+    - iframe
+    - img
+    - input
+    - script
+    - source
+    - track
+    - video
+srcdoc:
+  type: string
+srclang:
+  description: 'Specifies the language of the track text data.'
+  type: string
+  elements:
+    - track
+srcset:
+  description: 'Specifies a set of image candidate URLs and descriptors for responsive images.'
+  type: string
+  elements:
+    - img
+    - source
+start:
+  description: 'Specifies the starting value of an ordered list.'
+  type: integer
+  elements:
+    - ol
+step:
+  description: 'Specifies the legal number intervals for an input element.'
+  type: string
+  elements:
+    - input
+target:
+  description: 'Specifies where to open the linked document.'
+  type: enum
+  choices:
+    - _blank
+    - _parent
+    - _self
+    - _top
+    - framename
+  elements:
+    - a
+    - area
+    - base
+    - form
+text:
+  description: 'Specifies the default value of the <textarea> element.'
+  type: string
+  elements:
+    - textarea
+title:
+  description: 'Specifies additional information about the element, typically displayed as a tooltip.'
+  type: string
+  elements:
+    - a
+    - abbr
+    - area
+    - audio
+    - button
+    - details
+    - iframe
+    - img
+    - input
+    - map
+    - object
+    - progress
+    - span
+    - strong
+    - sub
+    - sup
+    - svg
+    - time
+    - video
+translate:
+  description: 'Specifies whether the content of an element should be translated or not.'
+  type: enum
+  choices:
+    - 'no'
+    - 'yes'
+type:
+  description: 'Specifies the media type of the linked resource.'
+  type: string
+  elements:
+    - a
+    - area
+    - button
+    - input
+    - link
+    - object
+    - script
+    - source
+    - style
+usemap:
+  description: 'Specifies a client-side image map to be used with the element.'
+  type: string
+  elements:
+    - img
+    - object
+value:
+  description: 'Specifies the value associated with the element. The meaning and usage may vary depending on the element type.'
+  type: string
+  elements:
+    - button
+    - input
+    - li
+    - meter
+    - option
+    - param
+    - progress
+    - select
+    - textarea
+width:
+  description: 'Specifies the width of the element. The meaning may vary depending on the element type. Accepts integers, pixels (px), and percentages (%).'
+  type: string
+  elements:
+    - canvas
+    - embed
+    - iframe
+    - img
+    - input
+    - object
+    - video
+wrap:
+  type: enum
+  choices:
+    - hard
+    - 'off'
+    - soft
