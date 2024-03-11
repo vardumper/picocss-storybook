@@ -37,6 +37,7 @@ Finally, you can start Storybook `yarn storybook`.
 
 # Roadmap
 
+- [ ] Automatically add all possible argument combinations (cartesian product) as stories.
 - [ ] Remove pico.css from preview.js and instead use a custom pico.scss without the default theme. Move styles into a category/folder/_component-name.scss file. Decide wether to autogenerate or handcraft them.
 - [ ] Finish all HTML5 Elements including complex or composite components.
 - [ ] Auto generate templates for different technologies (Twig, React, Vue, Angular, Svelte, etc.)
