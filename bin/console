@@ -6,6 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use PicoCSS\Storybook\Command\PicoCssSpecificationCommand;
 use PicoCSS\Storybook\Command\StorybookCompileCommand;
 use PicoCSS\Storybook\Command\HtmlSpecificationCommand;
+use PicoCSS\Storybook\Twig\Extension\HelperExtension;
 use Twig\Extension\DebugExtension;
 use Twig\Extra\Intl\IntlExtension;
 
@@ -17,6 +18,7 @@ $twig = new \Twig\Environment($loader, [
 ]);
 $twig->addExtension(new DebugExtension());
 $twig->addExtension(new IntlExtension());
+$twig->addExtension(new HelperExtension());
 
 $faker = Faker\Factory::create();
 
