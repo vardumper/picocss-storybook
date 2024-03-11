@@ -1,6 +1,139 @@
 import './../../assets/scss/colors.storybook.scss';
 import './../../../node_modules/@picocss/pico/css/pico.colors.css';
 
+/**
+<section class="color-families">
+  <article class="family">
+    <header class="pico-background-red">
+      Red
+    </header>
+    <main>
+      <button class="secondary pico-background-red-50">
+        50
+      </button>
+      <button class="secondary pico-background-red-100">
+        100
+      </button>
+      <button class="secondary pico-background-red-150">
+        150
+      </button>
+      <button class="secondary pico-background-red-200">
+        200
+      </button>
+      <button class="secondary pico-background-red-250">
+        250
+      </button>
+      <button class="secondary pico-background-red-300">
+        300
+      </button>
+      <button class="secondary pico-background-red-350">
+        350
+      </button>
+      <button class="secondary pico-background-red-400">
+        400
+      </button>
+      <button class="secondary pico-background-red-450">
+        450
+      </button>
+      <button class="secondary pico-background-red-500">
+        500
+      </button>
+      <button class="secondary pico-background-red-550">
+        550
+      </button>
+      <button class="secondary pico-background-red-600">
+        600
+      </button>
+      <button class="secondary pico-background-red-650">
+        650
+      </button>
+      <button class="secondary pico-background-red-700">
+        700
+      </button>
+      <button class="secondary pico-background-red-750">
+        750
+      </button>
+      <button class="secondary pico-background-red-800">
+        800
+      </button>
+      <button class="secondary pico-background-red-850">
+        850
+      </button>
+      <button class="secondary pico-background-red-900">
+        900
+      </button>
+      <button class="secondary pico-background-red-950">
+        950
+      </button>
+    </main>
+  </article>
+  <article class="family">
+    <header class="pico-background-pink">
+      Pink
+    </header>
+    <main>
+      <button class="secondary pico-background-pink-50">
+        50
+      </button>
+      <button class="secondary pico-background-pink-100">
+        100
+      </button>
+      <button class="secondary pico-background-pink-150">
+        150
+      </button>
+      <button class="secondary pico-background-pink-200">
+        200
+      </button>
+      <button class="secondary pico-background-pink-250">
+        250
+      </button>
+      <button class="secondary pico-background-pink-300">
+        300
+      </button>
+      <button class="secondary pico-background-pink-350">
+        350
+      </button>
+      <button class="secondary pico-background-pink-400">
+        400
+      </button>
+      <button class="secondary pico-background-pink-450">
+        450
+      </button>
+      <button class="secondary pico-background-pink-500">
+        500
+      </button>
+      <button class="secondary pico-background-pink-550">
+        550
+      </button>
+      <button class="secondary pico-background-pink-600">
+        600
+      </button>
+      <button class="secondary pico-background-pink-650">
+        650
+      </button>
+      <button class="secondary pico-background-pink-700">
+        700
+      </button>
+      <button class="secondary pico-background-pink-750">
+        750
+      </button>
+      <button class="secondary pico-background-pink-800">
+        800
+      </button>
+      <button class="secondary pico-background-pink-850">
+        850
+      </button>
+      <button class="secondary pico-background-pink-900">
+        900
+      </button>
+      <button class="secondary pico-background-pink-950">
+        950
+      </button>
+    </main>
+  </article>
+</section>
+**/
+
 export default {
   title: '{{ category }}/{{ folder }}/{{ component }}',
   parameters: {
@@ -17,37 +150,20 @@ export default {
         ],
       {% endfor %}
     };
-    let str = '<div class="st-colors">';
+    let str = '<section class="color-families">';
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const colorKey in obj) {
-      // eslint-disable-next-line no-prototype-builtins
       if (obj.hasOwnProperty(colorKey)) {
-        // add title and open list
-        str += `<p class="st-colors__title">${colorKey}</p><ul class="st-colors__list">`;
-
-        // eslint-disable-next-line no-restricted-syntax
+        str += `<article class="family"><header class="pico-background-red">${colorKey}</header><main>`;
         for (const colorValue in obj[colorKey]) {
-          // eslint-disable-next-line no-prototype-builtins
           if (obj[colorKey].hasOwnProperty(colorValue)) {
-            const value = `<div class="st-colors__item-value">${obj[colorKey][colorValue]}</div>`;
-
-            str += `
-        <li tabindex="0" class="st-colors__item pico-background-${obj[colorKey][colorValue]}">
-            <div class="st-colors__item-info">
-            ${value}
-            </div>
-          </li>
-          `;
+            str += `<button class="secondary pico-background-${obj[colorKey][colorValue]}">${obj[colorKey][colorValue]}</button>`;
           }
         }
-
-        // close list
-        str += `</ul></div>`;
+        str += `</main></article>`;
       }
     }
-
-    return str;
+    return str + '</section>';
   }
 };
 
