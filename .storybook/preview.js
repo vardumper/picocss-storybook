@@ -17,20 +17,6 @@ import "../node_modules/@picocss/pico/css/pico.css"
 
 const preview = {
   parameters: {
-    status: {
-      statuses: {
-        docs: {
-          background: "#0000ff",
-          color: "#ffffff",
-          description: "Open this component in the docs",
-        },
-        pico: {
-          background: "#0000ff",
-          color: "#ffffff",
-          description: "Open this component in the docs",
-        },
-      },
-    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -48,13 +34,13 @@ const preview = {
       layout: "fullscreen",
     },
     layout: "fullscreen",
-    html: {
-      prettier: {
-        tabWidth: 4,
-        useTabs: false,
-        htmlWhitespaceSensitivity: "strict",
-      },
-    },
+    // html: {
+    //   prettier: {
+    //     tabWidth: 4,
+    //     useTabs: false,
+    //     htmlWhitespaceSensitivity: "strict",
+    //   },
+    // },
   },
 };
 

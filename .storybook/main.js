@@ -1,4 +1,5 @@
 /** @type { import('@storybook/html-webpack5').StorybookConfig } */
+
 const config = {
   stories: [
     "../stories/**/*.mdx",
@@ -13,9 +14,6 @@ const config = {
     "@storybook/addon-interactions",
     "storybook-addon-pseudo-states",
     '@storybook/addon-a11y',
-    '@whitespace/storybook-addon-html',
-    '@etchteam/storybook-addon-status',
-    // "@storybook/addon-webpack5-compiler-swc",
     {
       name: "storybook-addon-sass-postcss",
       options: {
