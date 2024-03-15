@@ -146,7 +146,7 @@ class StorybookCompileCommand
             // $properties['description'] = str_replace($component, "`$component`", $properties['description']);
             $properties['description'] = html_entity_decode(preg_replace("/\b{$component}\b/", "`{$component}`", $properties['description']));
 
-            if ((!isset($properties['parent']) || !isset($properties['unique_per_parent'])) && isset($properties['text'])) {
+            if ((!isset($properties['parent']) || !isset($properties['unique_per_parent'])) && !isset($properties['children'])) {
                 $folder = ucfirst($properties['level']) . ' Elements';
                 // $componentName = $properties['name'];
                 $folderDirname = $this->stringToDirname($folder);

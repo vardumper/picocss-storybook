@@ -947,11 +947,6 @@ input:
     dirname: string
     disabled: boolean
     form: string
-    formaction: uri
-    formenctype: 'application/x-www-form-urlencoded | multipart/form-data | text/plain'
-    formmethod: 'get | post'
-    formnovalidate: boolean
-    formtarget: browsing_context_name
     height: integer
     list: string
     max: string
