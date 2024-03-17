@@ -366,7 +366,7 @@ manifest:
     - html
 max:
   description: 'Specifies the maximum value for an input element, meter, or progress element.'
-  type: string
+  type: integer
   elements:
     - input
     - meter
