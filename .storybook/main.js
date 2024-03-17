@@ -12,8 +12,8 @@ const config = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "storybook-addon-pseudo-states",
     '@storybook/addon-a11y',
+    // '@whitespace/storybook-addon-html',
     {
       name: "storybook-addon-sass-postcss",
       options: {
@@ -22,7 +22,6 @@ const config = {
         },
       },
     },
-    "@storybook/addon-webpack5-compiler-swc"
   ],
   staticDirs: ["../stories/assets/"],
   framework: {

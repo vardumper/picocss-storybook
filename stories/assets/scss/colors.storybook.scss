@@ -8,10 +8,12 @@ $pico-background-white: #FFFFFF;
 
 .pico-background-black {
   background-color: var(--pico-color-black);
+  color: var(--pico-color-white);
 }
 
 .pico-background-white {
-  background-color: var(--pico-color-white)
+  background-color: var(--pico-color-white);
+  color: var(--pico-color-black);
 }
 
 .color-families {

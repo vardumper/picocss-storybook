@@ -77,10 +77,10 @@ class HtmlSpecificationCommand
             }
         }
 
-        // store specs into different formats, for later use
+        // store specs as YAML, for later use
         file_put_contents(getcwd() . Paths::HTML_SPECIFICATION_FILE, Yaml::dump($htmlElements, 100, 2));
-        file_put_contents(getcwd() . str_replace('.yaml', '.min.yaml', Paths::HTML_SPECIFICATION_FILE), Yaml::dump($htmlElements, 0));
-        file_put_contents(getcwd() . str_replace('.yaml', '.php', Paths::HTML_SPECIFICATION_FILE), '<?php return ' . $this->varexport($htmlElements, true) . ';');
+        // file_put_contents(getcwd() . str_replace('.yaml', '.min.yaml', Paths::HTML_SPECIFICATION_FILE), Yaml::dump($htmlElements, 0));
+        // file_put_contents(getcwd() . str_replace('.yaml', '.php', Paths::HTML_SPECIFICATION_FILE), '<?php return ' . $this->varexport($htmlElements, true) . ';');
     }
 
     /**

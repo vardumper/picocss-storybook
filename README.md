@@ -18,22 +18,19 @@ Starting off with a component library utilizing the PicoCSS Default Theme. As an
 
 # Getting Started
 
-To get started, first clone the repository.
+To get started, first clone this repository.
 
 ```bash
 git clone git@github.com:vardumper/picocss-storybook.git
 cd picocss-storybook
 ```
-
-Then install composer dependencies and run the console command which generates the stories based on their YAML configurations.
+And run:
 
 ```bash
-composer install
-yarn install
-bin/console
+make
 ```
 
-Finally, you can start Storybook `yarn storybook`.
+This will install Composer and Yarn dependencies, build the storybook, and finally start Storybook for you.
 
 # Roadmap
 

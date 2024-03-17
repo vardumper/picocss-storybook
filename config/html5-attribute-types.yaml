@@ -84,11 +84,6 @@ checked.boolean:
   type: 'boolean'
   default: false
 
-cite.string:
-  type: 'string'
-  minLength: 1
-  maxLength: 255
-
 cite.uri:
   type: 'uri'
 
@@ -149,8 +144,8 @@ data.string:
 data.uri:
   type: 'uri'
 
-datetime.string:
-  type: 'string'
+datetime.datetime:
+  type: 'datetime'
   minLength: 1
   maxLength: 255
 
@@ -261,11 +256,6 @@ hidden.boolean:
   default: false
 
 high.string:
-  type: 'string'
-  minLength: 1
-  maxLength: 255
-
-href.string:
   type: 'string'
   minLength: 1
   maxLength: 255
@@ -583,11 +573,6 @@ span.integer:
 spellcheck.boolean:
   type: 'boolean'
   default: false
-
-src.string:
-  type: 'string'
-  minLength: 1
-  maxLength: 255
 
 src.uri:
   type: 'uri'

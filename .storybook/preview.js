@@ -8,6 +8,9 @@ import {
   Stories,
 } from "@storybook/blocks";
 
+// import { addParameters } from "@storybook/html";
+// import { Parser } from "html-to-react";
+
 import "../stories/assets/css/storybook.css";
 import "../stories/assets/js/main.js";
 import "../stories/assets/scss/pico.scss";
@@ -15,9 +18,16 @@ import "../stories/assets/scss/pico.scss";
 
 // import picocss from "./picocss";
 
+// addParameters({
+//   docs: {
+//     prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
+//   },
+// });
+
 const preview = {
   parameters: {
     controls: {
+      expanded: true,
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,
@@ -32,6 +42,7 @@ const preview = {
       },
       source: { type: "code" },
       layout: "fullscreen",
+      // prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
     },
     layout: "fullscreen",
     // html: {

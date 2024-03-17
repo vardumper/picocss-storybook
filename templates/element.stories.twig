@@ -8,14 +8,15 @@
   * @description {{ properties.description }}
   * @tutorial to re-generate the file execute bin/console
   */
-
+{% from '_macros.twig' import appendPropIfReserved as propName %}
 {% set typeToControl = {
   'string': 'text',
+  'datetime': 'date',
   'enum': 'select',
   'boolean': 'boolean',
   'color': 'color',
   'integer': 'number',
-  'uri': 'url',
+  'uri': 'text',
   'script': 'text',
   'browsing_context_name': 'text',
   'mime_type': 'text',
@@ -23,48 +24,53 @@
   'charset': 'text',
 } %}
 
-
 export default {
   title: "{{ category }}/{{ folder }}/{{ component}}",
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
-    componentSubtitle: "Some text here",
+    componentSubtitle: "{{ properties.level|capitalize }} Element",
     docs: {
       inlineStories: true,
       source: true,
       description: {
-        doc: "{{ component }}",
-        component:
-          "{{ properties.description|raw }}",
+        {# doc: "{{ component }}", #}
+        component: "{{ properties.description|raw }}",
       },
+      {# description: {
+        component: 'Another description, overriding the comments'
+      }, #}
     },
   },
   argTypes: {
-    textProp: {
+    {% if properties.text is defined %}
+    text: {
       type: { name: "string", required: true },
       description: "The text or HTML to display in the element",
-      defaultValue: "Some text",
+      defaultValue: "{{ properties.text }}",
       control: { type: "text" },
     },
-{% for attribute,props in properties.attributes %}
-    {{ attribute }}Prop: {
-      type: { name: "string", required: {{ props.required ? 'true' : 'false' }} },
-      description: "{{ props.description }}",
-      defaultValue: "{{ props.defaultValue }}",
-      control: { type: "{{ typeToControl[props.type] }}" },
-      {% if props.choices is defined %}options: ["{{ props.choices|join('", "') }}"],{% endif %}
+    {% endif %}
+{% for attribute,attrProps in properties.attributes %}
+    {# {% if attrProps.required == true %} #}
+    {{ propName(attribute) }}: {
+      type: { name: "{{ attrProps.type }}", required: {{ attrProps.required ? 'true' : 'false' }} },
+      description: "{{ attrProps.description|raw  }}",
+      defaultValue: "{{ attrProps.defaultValue }}",
+      control: { type: "{{ typeToControl[attrProps.type] }}" },
+      {% if attrProps.choices is defined %}options: ["{{ attrProps.choices|join('", "')|raw }}"],{% endif %}
     },
+    {# {% endif %} #}
 {% endfor %}
   },
-  render: ({ textProp{% if properties.attributes is not empty %},{% endif %} {% for attribute,props in properties.attributes %}{{ attribute }}Prop, {% endfor %} }) => {
+  render: ({ {% if properties.text is defined %}text{% endif %}{% if properties.attributes is not empty and properties.text is defined %},{% endif %}{% for attribute,props in properties.attributes %}{{ propName(attribute) }},{% endfor %} }) => {
     let el = document.createElement("{{ element }}");
-    if (textProp) {
-      el.innerHTML = textProp;
-    }
+    {% if properties.text is defined %}
+    el.innerHTML = text;
+    {% endif %}
 {% for attribute,props in properties.attributes %}
-    if ({{ attribute }}Prop) {
-      el.{{ attribute }} = {{ attribute }}Prop;
+    if ({{ propName(attribute) }}) {
+      el.{{ attribute }} = {{ propName(attribute) }};
     }
 {% endfor %}
     return el;
@@ -72,10 +78,36 @@ export default {
 };
 
 export const Default = {
+    parameters: {
+      docs: {
+        description: {
+          story: 'Default story with all arguments set to a random value'
+        },
+      },
+    },
     args: {
-      textProp: 'Some text',
-{% for attribute,props in properties.attributes %}
-        {{ attribute}}Prop: "HTML",
+      {% if properties.text is defined and properties.text is not empty %}
+      text: "{{ properties.text }}",
+      {% endif %}
+{% for attribute,attrProps in properties.attributes %}
+      {{ propName(attribute)}}: "{{ attrProps.defaultValue }}",
 {% endfor %}
     },
 };
+
+{% for story in stories %}
+export const Story{{ loop.index }} = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Another description on the story, overriding the comments'
+      },
+    },
+  },
+  args: {
+    {% for name, value in story %}
+    {{ name }}: "{{ value }}",
+    {% endfor %}
+  }
+};
+{% endfor %}

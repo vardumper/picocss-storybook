@@ -11,6 +11,7 @@ a:
     target: browsing_context_name
     title: string
     type: mime_type
+  text: string
 abbr:
   name: Abbreviation
   description: 'The abbr element represents an abbreviation or acronym, optionally with its expansion. The title attribute can be used to provide an expansion of the abbreviation. The attribute, if specified, must contain an expansion of the abbreviation, and nothing else.'
@@ -29,6 +30,7 @@ address:
   unique: false
   parent: article
   unique_per_parent: true
+  text: string
 area:
   name: Area
   description: 'The area element represents either a hyperlink with some text and a corresponding area on an image map, or a dead area on an image map.'
@@ -337,15 +339,10 @@ button:
   attributes:
     autofocus: boolean
     disabled: boolean
-    form: string
-    formaction: uri
-    formenctype: 'application/x-www-form-urlencoded | multipart/form-data | text/plain'
-    formmethod: 'get | post'
-    formnovalidate: boolean
-    formtarget: browsing_context_name
     name: string
     type: 'submit | reset | button'
     value: string
+  text: string
 canvas:
   name: Canvas
   description: 'The canvas element is used to draw graphics, on the fly, via scripting (usually JavaScript).'
@@ -359,8 +356,10 @@ caption:
   name: Caption
   description: 'The caption element represents the title of the table that is its parent, if it has a parent and that is a table element.'
   level: block
-  unique: true
+  unique: false
   text: string
+  unique_per_parent: true
+  parent: table
 cite:
   name: Citation
   description: 'The cite element represents the title of a work (e.g. a book, a paper, an essay, a poem, a score, a song, a script, a film, a TV show, a game, a sculpture, a painting, a theatre production, a play, an opera, a musical, an exhibition, a legal case report, etc). This can be a work that is being quoted or referenced in detail (i.e. a citation), or it can just be a work that is mentioned in passing.'
@@ -467,7 +466,8 @@ del:
   unique: false
   attributes:
     cite: uri
-    datetime: string
+    datetime: datetime
+  text: string
 details:
   name: Details
   description: 'The details element represents a disclosure widget from which the user can obtain additional information or controls.'
@@ -946,7 +946,6 @@ input:
     checked: boolean
     dirname: string
     disabled: boolean
-    form: string
     height: integer
     list: string
     max: string
@@ -972,7 +971,8 @@ ins:
   unique: false
   attributes:
     cite: uri
-    datetime: string
+    datetime: datetime
+  text: string
 kbd:
   name: 'Keyboard Input'
   description: 'The kbd element represents user input (typically keyboard input, although it may also be used to represent other input methods, such as voice commands).'
@@ -1206,7 +1206,6 @@ object:
   unique: false
   attributes:
     data: uri
-    form: uri
     height: integer
     name: string
     type: mime_type
@@ -1420,7 +1419,6 @@ select:
   attributes:
     autocomplete: 'on | off'
     disabled: boolean
-    form: string
     multiple: boolean
     name: string
     required: boolean
@@ -1563,7 +1561,6 @@ textarea:
     cols: integer
     dirname: string
     disabled: boolean
-    form: string
     maxlength: integer
     minlength: integer
     name: string
@@ -1605,7 +1602,7 @@ time:
   level: inline
   unique: false
   attributes:
-    datetime: string
+    datetime: datetime
   text: string
 title:
   name: Title

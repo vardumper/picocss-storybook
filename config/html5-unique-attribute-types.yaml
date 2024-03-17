@@ -1,9 +1,10 @@
 - string
 - enum
 - boolean
+- uri
 - color
 - integer
-- uri
+- datetime
 - script
 - browsing_context_name
 - mime_type

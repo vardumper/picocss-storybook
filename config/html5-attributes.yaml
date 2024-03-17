@@ -106,7 +106,7 @@ checked:
     - input
 cite:
   description: 'Specifies the URL of the cited work or the name of the cited creative work.'
-  type: string
+  type: uri
   elements:
     - blockquote
     - del
@@ -169,7 +169,7 @@ data:
     - object
 datetime:
   description: "Specifies the date and time of the change in the format 'YYYY-MM-DDThh:mm:ss' or a subset of it."
-  type: string
+  type: datetime
   elements:
     - del
     - ins
@@ -219,6 +219,7 @@ disabled:
     - textarea
 download:
   description: 'Indicates that the linked content should be downloaded rather than displayed.'
+  defaultValue: filename.pdf
   type: string
   elements:
     - a
@@ -257,58 +258,6 @@ for:
   elements:
     - label
     - output
-form:
-  description: 'Associates the element with a form to override the default form owner.'
-  type: string
-  elements:
-    - button
-    - fieldset
-    - input
-    - label
-    - select
-    - textarea
-formaction:
-  description: 'Specifies the URL to which the form data should be submitted when the form is submitted.'
-  type: string
-  elements:
-    - button
-    - input
-formenctype:
-  description: 'Specifies the encoding type for form data when the form is submitted.'
-  type: enum
-  choices:
-    - application/x-www-form-urlencoded
-    - multipart/form-data
-    - text/plain
-  elements:
-    - button
-    - input
-formmethod:
-  description: 'Specifies the HTTP method to be used when the form data is submitted.'
-  type: enum
-  choices:
-    - get
-    - post
-  elements:
-    - button
-    - input
-formnovalidate:
-  description: "When present, it specifies that a form's data should not be validated when submitted."
-  type: boolean
-  elements:
-    - button
-    - input
-formtarget:
-  description: 'Specifies where to display the response after submitting the form.'
-  type: enum
-  choices:
-    - _blank
-    - _parent
-    - _self
-    - _top
-  elements:
-    - button
-    - input
 headers:
   description: 'Specifies a list of header cells that represent the header for the cell.'
   type: string
@@ -339,7 +288,7 @@ high:
     - meter
 href:
   description: 'Specifies the URL of the linked resource. Special protocols such as mailto: or tel: can be used.'
-  type: string
+  type: uri
   required: true
   elements:
     - a
@@ -349,6 +298,7 @@ href:
 hreflang:
   description: 'Specifies the language of the linked resource.'
   type: string
+  defaultValue: en
   elements:
     - a
     - area
@@ -892,7 +842,8 @@ spellcheck:
   type: boolean
 src:
   description: 'Specifies the URL of the external resource to be embedded or referenced.'
-  type: string
+  type: uri
+  required: true
   elements:
     - audio
     - embed
@@ -929,6 +880,7 @@ step:
 target:
   description: 'Specifies where to open the linked document.'
   type: enum
+  defaultValue: _self
   choices:
     - _blank
     - _parent
