@@ -22,6 +22,7 @@
   'mime_type': 'text',
   'referrer_policy': 'text',
   'charset': 'text',
+  'language_iso': 'text'
 } %}
 
 export default {
@@ -58,7 +59,7 @@ export default {
       description: "{{ attrProps.description|raw  }}",
       defaultValue: "{{ attrProps.defaultValue }}",
       control: { type: "{{ typeToControl[attrProps.type] }}" },
-      {% if attrProps.choices is defined %}options: ["{{ attrProps.choices|join('", "')|raw }}"],{% endif %}
+      {% if attrProps.choices is defined %}options: [{{ not attrProps.required ? '"",' : '' }}"{{ attrProps.choices|join('", "')|raw }}"],{% endif %}
     },
     {# {% endif %} #}
 {% endfor %}
@@ -103,7 +104,7 @@ export const Default = {
 {% endfor %}
     },
 };
-
+{#
 {% for story in stories %}
 export const Story{{ loop.index }} = {
   parameters: {
@@ -119,4 +120,4 @@ export const Story{{ loop.index }} = {
     {% endfor %}
   }
 };
-{% endfor %}
+{% endfor %} #}

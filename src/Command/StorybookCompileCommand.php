@@ -180,10 +180,15 @@ class StorybookCompileCommand
         }
 
         try {
+            // either a defined defaultValue or a random value
+            if (isset($properties['defaultValue'])) {
+                return $properties['defaultValue'];
+            }
+
             return match ($type) {
                 'string' => $this->faker->words(rand(2, 4), true),
                 'datetime' => $this->faker->dateTimeThisYear()->format('Y-m-d\TH:i:s'),
-                'enum' => $this->faker->randomElement($choices ?? $properties['choices']),
+                'enum' => isset($properties['required']) ? $this->faker->randomElement($choices ?? $properties['choices']) : '',
                 'boolean' => $this->faker->boolean(),
                 'color' => $this->faker->hexColor(),
                 'integer' => $this->faker->randomNumber(3, true),
@@ -193,11 +198,10 @@ class StorybookCompileCommand
                 'mime_type' => $this->faker->randomElement(['text/html', 'application/pdf', 'image/png']),
                 'referrer_policy' => $this->faker->randomElement($properties['choices']),
                 'charset' => $this->faker->randomElement(['UTF-8', 'ISO-8859-1']),
+                'language_iso' => $this->faker->languageCode(),
             };
         } catch (\Exception $e) {
-            var_dump($element);
-            var_dump($e->getMessage());
-            var_dump($properties);
+            return $properties['defaultValue'];
         }
     }
 

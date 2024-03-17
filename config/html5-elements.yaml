@@ -6,7 +6,7 @@ a:
   attributes:
     download: string
     href: uri
-    hreflang: string
+    hreflang: language_iso
     rel: string
     target: browsing_context_name
     title: string
@@ -39,7 +39,7 @@ area:
     coords: string
     download: string
     href: uri
-    hreflang: string
+    hreflang: language_iso
     rel: string
     shape: 'rect | circle | poly | default'
     target: browsing_context_name
@@ -184,6 +184,7 @@ audio:
     muted: boolean
     preload: 'none | metadata | auto'
     src: uri
+  text: string
 b:
   name: Bold
   description: 'The b element represents a span of text to which attention is being drawn for utilitarian purposes without conveying any extra importance and with no implication of an alternate voice or mood, such as key words in a document abstract, product names in a review, actionable words in interactive text-driven software, or an article lede.'
@@ -1037,7 +1038,7 @@ link:
   attributes:
     crossorigin: 'anonymous | use-credentials'
     href: uri
-    hreflang: string
+    hreflang: language_iso
     integrity: string
     media: string
     referrerpolicy: referrer_policy

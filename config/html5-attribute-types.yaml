@@ -263,8 +263,8 @@ high.string:
 href.uri:
   type: 'uri'
 
-hreflang.string:
-  type: 'string'
+hreflang.language_iso:
+  type: 'language_iso'
   minLength: 1
   maxLength: 255
 

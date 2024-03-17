@@ -297,7 +297,7 @@ href:
     - link
 hreflang:
   description: 'Specifies the language of the linked resource.'
-  type: string
+  type: language_iso
   defaultValue: en
   elements:
     - a

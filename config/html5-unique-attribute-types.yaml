@@ -5,6 +5,7 @@
 - color
 - integer
 - datetime
+- language_iso
 - script
 - browsing_context_name
 - mime_type
