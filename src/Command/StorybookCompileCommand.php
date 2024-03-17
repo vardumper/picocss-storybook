@@ -150,32 +150,55 @@ class StorybookCompileCommand
             } elseif ($type === 'string') {
                 $options[$attribute] = isset($values['defaultValue'])
                     ? [$values['defaultValue']]
-                    : [$this->getDefaultValue($attribute, $values)];
+                    : [$this->getDefaultValue($component, $attribute, $values)];
             }
         }
 
         return $options;
     }
 
-    private function getDefaultValue(string $attribute, array $properties): int|bool|string
+    private function getDefaultValue(string $element, string $attribute, array $properties): int|bool|string
     {
+        // fallback to attribute types file
         $htmlAttributes = Yaml::parseFile(getcwd() . Paths::HTML_ATTRIBUTE_TYPES);
         $match = $htmlAttributes[current(preg_grep(sprintf('/^%s\./', $attribute), array_keys($htmlAttributes)))];
+        $fallBackType = $match['type'];
 
-        return match ($match['type']) {
-            'string' => $this->faker->words(rand(2, 4), true),
-            'datetime' => $this->faker->dateTimeThisYear()->format('Y-m-d\TH:i:s'),
-            'enum' => $this->faker->randomElement($properties['choices']),
-            'boolean' => $this->faker->boolean(),
-            'color' => $this->faker->hexColor(),
-            'integer' => $this->faker->randomNumber(3, true),
-            'uri' => $this->faker->url(),
-            'script' => 'console.log("Hello, world!")',
-            'browsing_context_name' => $this->faker->randomElement(['_blank', '_self', '_parent', '_top']),
-            'mime_type' => $this->faker->randomElement(['text/html', 'application/pdf', 'image/png']),
-            'referrer_policy' => $this->faker->randomElement($properties['choices']),
-            'charset' => $this->faker->randomElement(['UTF-8', 'ISO-8859-1']),
-        };
+        // preferred from elements file
+        try {
+            $htmlAttributes = Yaml::parseFile(getcwd() . Paths::ELEMENT_DESCRIPTION_FILE);
+            $type = isset($htmlAttributes[$element]['attributes'][$attribute])
+            ? $htmlAttributes[$element]['attributes'][$attribute]
+            : $fallBackType;
+        } catch (\Exception) {
+        }
+
+        $choices = false;
+        if (str_contains($type, ' | ')) {
+            $choices = explode(' | ', trim($type));
+            $type = 'enum';
+        }
+
+        try {
+            return match ($type) {
+                'string' => $this->faker->words(rand(2, 4), true),
+                'datetime' => $this->faker->dateTimeThisYear()->format('Y-m-d\TH:i:s'),
+                'enum' => $this->faker->randomElement($choices ?? $properties['choices']),
+                'boolean' => $this->faker->boolean(),
+                'color' => $this->faker->hexColor(),
+                'integer' => $this->faker->randomNumber(3, true),
+                'uri' => $this->faker->url(),
+                'script' => 'console.log("Hello, world!")',
+                'browsing_context_name' => $this->faker->randomElement(['_blank', '_self', '_parent', '_top']),
+                'mime_type' => $this->faker->randomElement(['text/html', 'application/pdf', 'image/png']),
+                'referrer_policy' => $this->faker->randomElement($properties['choices']),
+                'charset' => $this->faker->randomElement(['UTF-8', 'ISO-8859-1']),
+            };
+        } catch (\Exception $e) {
+            var_dump($element);
+            var_dump($e->getMessage());
+            var_dump($properties);
+        }
     }
 
     private function createComponentsFromHtmlSpecifications(SymfonyStyle $io): void
@@ -230,7 +253,7 @@ class StorybookCompileCommand
                 // set fake default Values
                 if (isset($properties['attributes'])) {
                     foreach ($properties['attributes'] as $attr => $values) {
-                        $properties['attributes'][$attr]['defaultValue'] = $this->getDefaultValue($attr, $values);
+                        $properties['attributes'][$attr]['defaultValue'] = $this->getDefaultValue($component, $attr, $values);
                     }
                 }
 

@@ -20,9 +20,7 @@ abbr:
   unique: false
   text: string
   attributes:
-    title:
-      type: text
-      defaultValue: 'Hypertext Markup Language'
+    title: string
 address:
   name: Address
   description: 'The address element represents the contact information for its nearest article or body ancestor. If that is the body element, then the contact information applies to the document as a whole.'

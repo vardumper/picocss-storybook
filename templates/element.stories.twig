@@ -75,7 +75,7 @@ export default {
         el.setAttribute('{{ attribute }}', dt.replace('Z', ''));
       {% elseif props.type == 'boolean' %}
         if ({{ attribute }}) {
-          el.setAttribute('{{ attribute }}', {{ attribute }});
+          el.setAttribute('{{ attribute }}', '{{ attribute }}');
         }
       {% else %}
         el.setAttribute('{{ attribute }}', {{ propName(attribute) }});
