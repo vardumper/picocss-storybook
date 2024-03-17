@@ -1,5 +1,6 @@
 {
   "require": {
+    "bentools/cartesian-product": "^1.4",
     "fakerphp/faker": "^1.23",
     "matthiasmullie/minify": "^1.3",
     "mnapoli/silly": "^1.9",

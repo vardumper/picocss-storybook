@@ -5,3 +5,7 @@
     max-width: 90px !important;
     max-height: 39px !important;
 }
+
+thead.docblock-argstable-head {
+    color-scheme: light;
+}

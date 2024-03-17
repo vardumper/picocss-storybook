@@ -1,54 +1,57 @@
 {
-  "name": "picocss-storybook",
-  "version": "1.0.0",
-  "description": "Storybook Skeleton for PicoCSS Theme",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "storybook dev -p 6009",
-    "build-storybook": "storybook build"
-  },
-  "keywords": [
-    "pico",
-    "picocss",
-    "css",
-    "framework"
-  ],
-  "author": "Erik Pöhler <info@erikpoehler.com>",
-  "license": "ISC",
-  "devDependencies": {
-    "@storybook/addon-essentials": "^8.0.0",
-    "@storybook/addon-interactions": "^8.0.0",
-    "@storybook/addon-links": "^8.0.0",
-    "@storybook/addon-styling-webpack": "^0.0.6",
-    "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
-    "@storybook/blocks": "^8.0.0",
-    "@storybook/html": "^8.0.0",
-    "@storybook/html-webpack5": "^8.0.0",
-    "@storybook/manager-api": "^8.0.0",
-    "@storybook/test": "^8.0.0",
-    "@storybook/theming": "^8.0.0",
-    "@swc/core": "^1.4.5",
-    "jackspeak": "2.3.6",
-    "storybook": "^8.0.0",
-    "storybook-addon-pseudo-states": "^2.2.1",
-    "storybook-addon-sass-postcss": "^0.2.0",
-    "swc-loader": "^0.2.6"
-  },
-  "dependencies": {
-    "@etchteam/storybook-addon-status": "^4.2.4",
-    "@picocss/pico": "^2.0.3",
-    "@storybook/addon-a11y": "^8.0.0",
-    "@whitespace/storybook-addon-html": "^5.1.6",
-    "css-declaration-sorter": "^7.1.1",
-    "postcss-scss": "^4.0.9",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-syntax-highlighter": "^15.5.0",
-    "sass": "^1.71.1",
-    "styled-components": "^6.1.8"
-  },
-  "resolutions": {
-    "jackspeak": "2.1.1"
-  }
+    "name": "picocss-storybook",
+    "version": "1.0.0",
+    "description": "Storybook Skeleton for PicoCSS Theme",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "storybook": "storybook dev -p 6009",
+        "build-storybook": "storybook build",
+        "format": "js-beautify -r -s 2 \"stories/**/*.stories.{jsx,js}\""
+    },
+    "keywords": [
+        "pico",
+        "picocss",
+        "css",
+        "framework"
+    ],
+    "author": "Erik Pöhler <info@erikpoehler.com>",
+    "license": "ISC",
+    "devDependencies": {
+        "@storybook/addon-essentials": "^8.0.0",
+        "@storybook/addon-interactions": "^8.0.0",
+        "@storybook/addon-links": "^8.0.0",
+        "@storybook/addon-styling-webpack": "^0.0.6",
+        "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+        "@storybook/blocks": "^8.0.0",
+        "@storybook/html": "^8.0.0",
+        "@storybook/html-webpack5": "^8.0.0",
+        "@storybook/manager-api": "^8.0.0",
+        "@storybook/test": "^8.0.0",
+        "@storybook/theming": "^8.0.0",
+        "@swc/core": "^1.4.5",
+        "html-to-react": "^1.7.0",
+        "jackspeak": "2.3.6",
+        "storybook": "^8.0.0",
+        "storybook-addon-sass-postcss": "^0.2.0",
+        "swc-loader": "^0.2.6"
+    },
+    "dependencies": {
+        "@picocss/pico": "^2.0.3",
+        "@storybook/addon-a11y": "^8.0.0",
+        "css-declaration-sorter": "^7.1.1",
+        "js-beautify": "^1.15.1",
+        "postcss": "^8.4.35",
+        "postcss-scss": "^4.0.9",
+        "prettier": "^3.2.5",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-syntax-highlighter": "^15.5.0",
+        "sass": "^1.71.1",
+        "styled-components": "^6.1.8",
+        "webpack": "^5.90.3"
+    },
+    "resolutions": {
+        "jackspeak": "2.1.1"
+    }
 }

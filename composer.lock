@@ -4,8 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8d825be130ccdec2b6f3e55714d7b1fb",
+    "content-hash": "cbd58739e86831f53afbc24c0ce2d732",
     "packages": [
+        {
+            "name": "bentools/cartesian-product",
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bpolaszek/cartesian-product.git",
+                "reference": "ae6b437c3fc8243c6a5ab67fe270e032f4ce2f7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bpolaszek/cartesian-product/zipball/ae6b437c3fc8243c6a5ab67fe270e032f4ce2f7b",
+                "reference": "ae6b437c3fc8243c6a5ab67fe270e032f4ce2f7b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "dms/phpunit-arraysubset-asserts": "^0.3.1",
+                "php-coveralls/php-coveralls": "@stable",
+                "phpunit/phpunit": "^8.0|^9.0",
+                "squizlabs/php_codesniffer": "@stable",
+                "symfony/var-dumper": "^3.2|^4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/function.php"
+                ],
+                "psr-4": {
+                    "BenTools\\CartesianProduct\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A simple, low-memory footprint function to generate all combinations from a multi-dimensionnal array.",
+            "support": {
+                "issues": "https://github.com/bpolaszek/cartesian-product/issues",
+                "source": "https://github.com/bpolaszek/cartesian-product/tree/1.4.1"
+            },
+            "time": "2022-01-19T13:31:38+00:00"
+        },
         {
             "name": "fakerphp/faker",
             "version": "v1.23.1",

@@ -1,0 +1,43 @@
+🩺 checking the health of your Storybook..
+(node:76545) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+╭ Diagnostics ─────────────────────────────────────────────────────────────────────────╮
+│                                                                                      │
+│   Critical: The following dependencies are duplicated and WILL cause unexpected      │
+│   behavior:                                                                          │
+│   @storybook/core-common:                                                            │
+│   7.6.17, 8.0.0-rc.2                                                                 │
+│                                                                                      │
+│   @storybook/core-events:                                                            │
+│   7.6.17, 8.0.0-rc.2                                                                 │
+│                                                                                      │
+│                                                                                      │
+│   Attention: The following dependencies are duplicated which might cause             │
+│   unexpected behavior:                                                               │
+│   @storybook/csf-tools:                                                              │
+│   7.6.17, 8.0.0-rc.2                                                                 │
+│                                                                                      │
+│   @storybook/node-logger:                                                            │
+│   7.6.17, 8.0.0-rc.2                                                                 │
+│                                                                                      │
+│   @storybook/types:                                                                  │
+│   7.6.17, 8.0.0-rc.2                                                                 │
+│                                                                                      │
+│   @storybook/channels:                                                               │
+│   7.6.17, 8.0.0-rc.2                                                                 │
+│                                                                                      │
+│                                                                                      │
+│   You can find more information for a given dependency by running yarn why           │
+│   <package-name>                                                                     │
+│                                                                                      │
+│                                                                                      │
+│   Please try de-duplicating these dependencies by running yarn dedupe                │
+│                                                                                      │
+│   -------                                                                            │
+│                                                                                      │
+│   You can find the full logs in                                                      │
+│   /Users/erik/Sites/picocss-storybook/doctor-storybook.log                           │
+│                                                                                      │
+╰──────────────────────────────────────────────────────────────────────────────────────╯
+

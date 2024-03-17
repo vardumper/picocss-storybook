@@ -1,5 +1,6 @@
 up:
-	php -S localhost:8000 -t public
+	composer install
+	yarn install
+	bin/console
+	yarn format
 	yarn storybook
-down:
-	killall php

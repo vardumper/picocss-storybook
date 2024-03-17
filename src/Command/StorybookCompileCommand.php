@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Yaml\Yaml;
+use function BenTools\CartesianProduct\cartesian_product;
 
 class StorybookCompileCommand
 {
@@ -123,6 +124,60 @@ class StorybookCompileCommand
         $io->success('Created ' . basename($storyPath));
     }
 
+    private function buildStoryOptions(string $component, array $attributes, ?string $text = null): array
+    {
+        $options = [];
+
+        if ($text) {
+            $options = [
+                'text' => [
+                    $this->faker->sentence(rand(3, 5), true),
+                ],
+            ];
+        }
+
+        foreach ($attributes as $attribute => $values) {
+            // skip non-required attributes
+            if (empty($values['required'])) {
+                continue;
+            }
+
+            $type = $values['type'];
+            if ($type === 'boolean') {
+                $options[$attribute] = [true, false];
+            } elseif ($type === 'enum') {
+                $options[$attribute] = $values['choices'];
+            } elseif ($type === 'string') {
+                $options[$attribute] = isset($values['defaultValue'])
+                    ? [$values['defaultValue']]
+                    : [$this->getDefaultValue($attribute, $values)];
+            }
+        }
+
+        return $options;
+    }
+
+    private function getDefaultValue(string $attribute, array $properties): int|bool|string
+    {
+        $htmlAttributes = Yaml::parseFile(getcwd() . Paths::HTML_ATTRIBUTE_TYPES);
+        $match = $htmlAttributes[current(preg_grep(sprintf('/^%s\./', $attribute), array_keys($htmlAttributes)))];
+
+        return match ($match['type']) {
+            'string' => $this->faker->words(rand(2, 4), true),
+            'datetime' => $this->faker->dateTimeThisYear()->format('Y-m-d\TH:i:s'),
+            'enum' => $this->faker->randomElement($properties['choices']),
+            'boolean' => $this->faker->boolean(),
+            'color' => $this->faker->hexColor(),
+            'integer' => $this->faker->randomNumber(3, true),
+            'uri' => $this->faker->url(),
+            'script' => 'console.log("Hello, world!")',
+            'browsing_context_name' => $this->faker->randomElement(['_blank', '_self', '_parent', '_top']),
+            'mime_type' => $this->faker->randomElement(['text/html', 'application/pdf', 'image/png']),
+            'referrer_policy' => $this->faker->randomElement($properties['choices']),
+            'charset' => $this->faker->randomElement(['UTF-8', 'ISO-8859-1']),
+        };
+    }
+
     private function createComponentsFromHtmlSpecifications(SymfonyStyle $io): void
     {
         $destination = getcwd() . DIRECTORY_SEPARATOR . 'stories' . DIRECTORY_SEPARATOR . 'html';
@@ -138,31 +193,61 @@ class StorybookCompileCommand
                 continue;
             }
 
-            // do not render children, these are part of a complex type else (eg: tbody, tr td)
+            // do not render children, these are part of a complex type else (eg: tbody, tr td, caption, figcaption, etc)
             if (isset($properties['parent'])) {
                 continue;
             }
 
-            // $properties['description'] = str_replace($component, "`$component`", $properties['description']);
-            $properties['description'] = html_entity_decode(preg_replace("/\b{$component}\b/", "`{$component}`", $properties['description']));
+            // modify description
+            $description = html_entity_decode(preg_replace("/\b{$component}\b/", "`{$component}`", $properties['description'], 1));
+            if (!empty($properties['children'])) {
+                $description .= ' Allowed children: `' . implode('`, `', $properties['children']) . '`.';
+            }
+            $properties['description'] = $description;
 
             if ((!isset($properties['parent']) || !isset($properties['unique_per_parent'])) && !isset($properties['children'])) {
                 $folder = ucfirst($properties['level']) . ' Elements';
-                // $componentName = $properties['name'];
                 $folderDirname = $this->stringToDirname($folder);
                 $dest = $destination . DIRECTORY_SEPARATOR . $folderDirname . DIRECTORY_SEPARATOR . $this->stringToDirname($properties['name']);
                 if (!is_dir($dest)) {
                     mkdir($dest, 0777, true);
                 }
 
-                $js = $this->twig->render('element.stories.twig', [
+                if (isset($properties['text'])) {
+                    $properties['text'] = $this->faker->words(3, true);
+                }
+
+                // get all required args, including nodeValue (text)
+                if (isset($properties['attributes'])) {
+                    $options = $this->buildStoryOptions($component, $properties['attributes'], $properties['text'] ?? null);
+                }
+
+                // build stories based on required arguments
+                if (!empty($options)) {
+                    $stories = cartesian_product($options)->asArray();
+                }
+
+                // set fake default Values
+                if (isset($properties['attributes'])) {
+                    foreach ($properties['attributes'] as $attr => $values) {
+                        $properties['attributes'][$attr]['defaultValue'] = $this->getDefaultValue($attr, $values);
+                    }
+                }
+
+                // variables passed to twig
+                $data = [
                     'category' => $category,
                     'folder' => $folder,
                     'component' => $properties['name'],
                     'element' => $component,
                     'filename' => str_replace(getcwd(), '', $dest . DIRECTORY_SEPARATOR . $component . '.stories.js'),
                     'properties' => $properties,
-                ]);
+                    'stories' => $stories ?? [],
+                ];
+                if ($component === 'ins') {
+                    var_dump($data);
+                }
+                $js = $this->twig->render('element.stories.twig', $data);
                 file_put_contents($dest . DIRECTORY_SEPARATOR . $this->stringToDirname($properties['name']) . '.stories.js', $js);
             }
         }
