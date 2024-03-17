@@ -1,3 +1,19 @@
+$pico-background-black: #000000;
+$pico-background-white: #FFFFFF;
+
+:root {
+  --pico-color-black: #000000;
+  --pico-color-white: #FFFFFF;
+}
+
+.pico-background-black {
+  background-color: var(--pico-color-black);
+}
+
+.pico-background-white {
+  background-color: var(--pico-color-white)
+}
+
 .color-families {
   grid-column-gap: 2rem;
   grid-row-gap: 4rem;
@@ -48,3 +64,4 @@
   border-radius: var(--pico-border-radius);
   font-size: .75rem
 }
+

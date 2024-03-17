@@ -1,12 +1,16 @@
+/**
+ * complete pico css without theme
+ */
 @use "@picocss/pico/scss/pico" with (
-    $theme-color: "azure" , // amber, azure, blue, cyan, fuchsia, green, grey, indigo, jade, lime, orange, pink, pumpkin, purple, red, sand, slate, violet, yellow, zinc
+
+    $theme-color: "azure", // amber, azure, blue, cyan, fuchsia, green, grey, indigo, jade, lime, orange, pink, pumpkin, purple, red, sand, slate, violet, yellow, zinc
 
     // Prefix for CSS variables
-    $css-var-prefix: "--pico-" , // Must start with "--"
+    $css-var-prefix: "--pico-", // Must start with "--"
 
     // Define the root element used to target <header>, <main>, <footer>
     // with $enable-semantic-container and $enable-responsive-spacings
-    $semantic-root-element: "body" ,
+    $semantic-root-element: "#storybook-root",
 
     // Enable <header>, <main>, <footer> inside $semantic-root-element as containers
     $enable-semantic-container: false,
@@ -36,7 +40,7 @@
     // Optional parent selector
     // If defined, all HTML tags are wrapped with this selector
     // :root is not wrapped
-    $parent-selector: "" ,
+    $parent-selector: "",
 
     // Breakpoints, viewports and root font sizes
     $breakpoints: ( // Small (landscape phones)
@@ -77,7 +81,7 @@
 
     // Modules to export
     $modules: ( // Theme
-        "themes/default": true,
+        "themes/default": false,
 
         // Layout
         "layout/document": true,
@@ -120,5 +124,5 @@
         // Utilities
         "utilities/accessibility": true,
         "utilities/reduce-motion": true,
-    )
+    ),
 );
