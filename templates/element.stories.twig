@@ -70,7 +70,16 @@ export default {
     {% endif %}
 {% for attribute,props in properties.attributes %}
     if ({{ propName(attribute) }}) {
-      el.{{ attribute }} = {{ propName(attribute) }};
+      {% if props.type == 'datetime' %}
+        let dt = new Date({{ propName(attribute) }}).toISOString();
+        el.setAttribute('{{ attribute }}', dt.replace('Z', ''));
+      {% elseif props.type == 'boolean' %}
+        if ({{ attribute }}) {
+          el.setAttribute('{{ attribute }}', {{ attribute }});
+        }
+      {% else %}
+        el.setAttribute('{{ attribute }}', {{ propName(attribute) }});
+      {% endif %}
     }
 {% endfor %}
     return el;

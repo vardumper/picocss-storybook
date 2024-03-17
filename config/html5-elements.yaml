@@ -1257,6 +1257,7 @@ p:
   description: 'The p element represents a paragraph.'
   level: block
   unique: false
+  text: string
 param:
   name: Parameter
   description: 'The param element defines parameters for an object element.'
@@ -1278,6 +1279,7 @@ pre:
   description: 'The pre element represents preformatted text. Text within this element is typically displayed in a non-proportional font exactly as it is laid out in the file.'
   level: block
   unique: false
+  text: string
 progress:
   name: Progress
   description: 'The progress element represents the completion progress of a task.'
