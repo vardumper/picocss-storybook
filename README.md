@@ -34,7 +34,8 @@ This will install Composer and Yarn dependencies, build the storybook, and final
 
 # Roadmap
 
-- [ ] Automatically add all possible argument combinations (cartesian product) as stories.
-- [ ] Remove pico.css from preview.js and instead use a custom pico.scss without the default theme. Move styles into a category/folder/_component-name.scss file. Decide wether to autogenerate or handcraft them.
+- [x] Automatically add ~all possible argument combinations~ required argument combinations (cartesian product) as stories.
+- [x] Remove pico.css from preview.js and instead use a custom pico.scss without the default theme.
+- [ ] Move styles into a category/folder/_component-name.scss file. Decide wether to autogenerate or handcraft them.
 - [ ] Finish all HTML5 Elements including complex or composite components.
 - [ ] Auto generate templates for different technologies (Twig, React, Vue, Angular, Svelte, etc.)
