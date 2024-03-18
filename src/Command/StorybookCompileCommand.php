@@ -201,7 +201,7 @@ class StorybookCompileCommand
                 'language_iso' => $this->faker->languageCode(),
             };
         } catch (\Exception $e) {
-            return $properties['defaultValue'];
+            return '';
         }
     }
 

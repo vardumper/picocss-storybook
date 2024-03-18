@@ -13,7 +13,7 @@
     $semantic-root-element: "#storybook-root",
 
     // Enable <header>, <main>, <footer> inside $semantic-root-element as containers
-    $enable-semantic-container: false,
+    $enable-semantic-container: true,
 
     // Enable a centered viewport for <header>, <main>, <footer> inside $semantic-root-element
     // Fluid layout if disabled
