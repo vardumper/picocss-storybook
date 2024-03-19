@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbd58739e86831f53afbc24c0ce2d732",
+    "content-hash": "5c4bbaa0c43a93365c8c27d315f9f872",
     "packages": [
         {
             "name": "bentools/cartesian-product",
