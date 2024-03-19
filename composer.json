@@ -1,4 +1,5 @@
 {
+  "name": "vardumper/picocss-storybook",
   "license": "MIT",
   "require": {
     "bentools/cartesian-product": "^1.4",
