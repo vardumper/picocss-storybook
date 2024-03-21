@@ -159,10 +159,18 @@ class StorybookCompileCommand
 
     private function getDefaultValue(string $element, string $attribute, array $properties): int|bool|string
     {
+        if (isset($properties['defaultValue'])) {
+            return $properties['defaultValue'];
+        }
+        var_dump($element);
+        var_dump($attribute);
         // fallback to attribute types file
         $htmlAttributes = Yaml::parseFile(getcwd() . Paths::HTML_ATTRIBUTE_TYPES);
-        $match = $htmlAttributes[current(preg_grep(sprintf('/^%s\./', $attribute), array_keys($htmlAttributes)))];
-        $fallBackType = $match['type'];
+        $fallBackType = null;
+        if (array_key_exists($attribute, $htmlAttributes)) {
+            $match = $htmlAttributes[current(preg_grep(sprintf('/^%s\./', $attribute), array_keys($htmlAttributes)))];
+            $fallBackType = $match['type'];
+        }
 
         // preferred from elements file
         try {
@@ -174,17 +182,13 @@ class StorybookCompileCommand
         }
 
         $choices = false;
-        if (str_contains($type, ' | ')) {
+        if (\str_contains($type, ' | ')) {
             $choices = explode(' | ', trim($type));
             $type = 'enum';
         }
 
         try {
             // either a defined defaultValue or a random value
-            if (isset($properties['defaultValue'])) {
-                return $properties['defaultValue'];
-            }
-
             return match ($type) {
                 'string' => $this->faker->words(rand(2, 4), true),
                 'datetime' => $this->faker->dateTimeThisYear()->format('Y-m-d\TH:i:s'),
@@ -211,7 +215,7 @@ class StorybookCompileCommand
         $category = 'HTML5';
         $i = 0;
 
-        $htmlElements = Yaml::parseFile(getcwd() . Paths::HTML_SPECIFICATION_FILE);
+        $htmlElements = Yaml::parseFile(getcwd() . Paths::SPECIFICATION_FILE);
         foreach ($htmlElements as $component => $properties) {
             // void elements aren't visible nor styled
             if ($properties['level'] === 'void') {
@@ -278,5 +282,7 @@ class StorybookCompileCommand
                 file_put_contents($dest . DIRECTORY_SEPARATOR . $this->stringToDirname($properties['name']) . '.stories.js', $js);
             }
         }
+
+        exec('yarn format'); // formats the generated files
     }
 }

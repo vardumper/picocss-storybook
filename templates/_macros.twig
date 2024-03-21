@@ -10,6 +10,9 @@
 
     {% if parameter in reservedWords %}
         {{ parameter }}Prop
+    {% elseif '-' in parameter %}
+        {% set tmp = parameter|replace({'-': ' '})|title|replace({' ': ''}) %}
+        {{ tmp[:1]|lower ~ tmp[1:] }}
     {% else %}
         {{ parameter }}
     {% endif %}

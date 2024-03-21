@@ -9,10 +9,12 @@ declare(strict_types=1);
 
 namespace PicoCSS\Storybook\Command;
 
+use PicoCSS\Storybook\Config\Paths;
 use Silly\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Yaml\Yaml;
 
 class PicoCssSpecificationCommand
 {
@@ -20,7 +22,14 @@ class PicoCssSpecificationCommand
     {
         $io = new SymfonyStyle($input, $output);
 
-        /** @todo implement */
+        $picoSpecs = Yaml::parseFile(getcwd() . Paths::PICO_DESCRIPTION_FILE);
+        $htmlSpecs = Yaml::parseFile(getcwd() . Paths::HTML_SPECIFICATION_FILE);
+
+        $specs = \array_merge_recursive($htmlSpecs, $picoSpecs);
+        \file_put_contents(getcwd() . Paths::SPECIFICATION_FILE, Yaml::dump($specs, 10, 2));
+
+        $io->success(sprintf('Generated Combined Specification to file %s', \basename(getcwd() . Paths::SPECIFICATION_FILE)));
+
         return Command::SUCCESS;
     }
 }
