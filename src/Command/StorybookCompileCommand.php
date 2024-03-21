@@ -274,14 +274,17 @@ class StorybookCompileCommand
                     'properties' => $properties,
                     'stories' => $stories ?? [],
                 ];
-                if ($component === 'ins') {
-                    var_dump($data);
-                }
+                // if ($component === 'ins') { var_dump($data); exit}
                 $js = $this->twig->render('element.stories.twig', $data);
                 file_put_contents($dest . DIRECTORY_SEPARATOR . $this->stringToDirname($properties['name']) . '.stories.js', $js);
             }
         }
 
-        exec('yarn format'); // formats the generated files
+        exec('yarn format 2>&1 &', $return, $code); // formats the generated files
+        if ($code != 0) {
+            $io->error(sprintf('Dang! Something went wrong during formatting of stories.js files: %s (%s)', join('<br />', $return), $code));
+        } else {
+            $io->success('All components have been created.');
+        }
     }
 }
