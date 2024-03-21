@@ -162,8 +162,7 @@ class StorybookCompileCommand
         if (isset($properties['defaultValue'])) {
             return $properties['defaultValue'];
         }
-        var_dump($element);
-        var_dump($attribute);
+
         // fallback to attribute types file
         $htmlAttributes = Yaml::parseFile(getcwd() . Paths::HTML_ATTRIBUTE_TYPES);
         $fallBackType = null;

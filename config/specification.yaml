@@ -91,7 +91,7 @@ a:
         - video
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -257,7 +257,7 @@ area:
         - form
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -743,7 +743,7 @@ button:
         - textarea
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -754,6 +754,12 @@ button:
         - script
         - source
         - style
+      defaultValue: ''
+      choices:
+        - ''
+        - submit
+        - button
+        - reset
     value:
       description: 'Specifies the value associated with the element. The meaning and usage may vary depending on the element type.'
       type: string
@@ -767,6 +773,18 @@ button:
         - progress
         - select
         - textarea
+    class:
+      description: 'The class attribute is used to define equal styles for multiple elements.'
+      required: true
+      defaultValue: ''
+      type: enum
+      choices:
+        - ''
+        - secondary
+        - contrast
+        - outline
+        - 'secondary outline'
+        - 'contrast outline'
   text: string
 canvas:
   name: Canvas
@@ -1126,7 +1144,7 @@ embed:
         - video
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -1889,7 +1907,7 @@ input:
         - input
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -2116,7 +2134,7 @@ link:
         - source
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -2411,7 +2429,7 @@ object:
         - textarea
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -2457,7 +2475,7 @@ ol:
         - ol
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -2756,7 +2774,7 @@ script:
         - video
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -2973,7 +2991,7 @@ source:
         - video
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
@@ -3051,7 +3069,7 @@ style:
         - video
     type:
       description: 'Specifies the media type of the linked resource.'
-      type: string
+      type: enum
       elements:
         - a
         - area
