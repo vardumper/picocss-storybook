@@ -928,7 +928,7 @@ translate:
     - 'yes'
 type:
   description: 'Specifies the media type of the linked resource.'
-  type: string
+  type: enum
   elements:
     - a
     - area
