@@ -3,6 +3,7 @@
 /bin/php
 /node_modules/
 /vendor/
+/stories/html/
 /storybook-static/
 /.history/
 /stories/**/*.stories.js
