@@ -22,14 +22,14 @@ const config = {
         },
       },
     },
+    "@storybook/addon-webpack5-compiler-swc",
+    "@chromatic-com/storybook"
   ],
   staticDirs: ["../stories/assets/"],
   framework: {
     name: "@storybook/html-webpack5",
     options: {
-      builder: {
-        useSWC: true,
-      },
+      builder: {},
     },
   },
   swc: (config) => {
