@@ -1,0 +1,88 @@
+# Any Element
+'*':
+   attributes:
+    data-theme:
+      description: 'Choose between light and dark mode. Overrides the OS default if set.'
+      type: enum
+      defaultValue: ''
+      choices:
+        - ''
+        - light
+        - dark
+# Tooltips
+'/^(?!embed|canvas|object|audio|video|iframe)([a-z0-9]+)$/':
+  attributes:
+    data-tooltip:
+      description: 'The tooltip attribute is used to define a tooltip for an element.'
+      type: string
+      defaultValue: ''
+    data-placement:
+      description: 'The placement attribute is used to define the position of a tooltip.'
+      type: enum
+      defaultValue: ''
+      choices:
+        - ''
+        - top
+        - right
+        - bottom
+        - left
+# Role Button
+'/^(a|button|div|span)$/':
+  attributes:
+    role:
+      description: 'The role attribute is used to define the purpose of an element.'
+      type: enum
+      defaultValue: ''
+      choices:
+        - ''
+        - button
+    class:
+      description: 'The class attribute is used to define equal styles for multiple elements.'
+      required: true
+      defaultValue: ''
+      type: enum
+      choices:
+        - ''
+        - secondary
+        - contrast
+        - outline
+        - secondary outline
+        - contrast outline
+# Role group
+'/^(div|fieldset)$/':
+   attributes:
+    role:
+      description: 'The role attribute is used to define the purpose of an element.'
+      type: enum
+      defaultValue: ''
+      choices:
+        - ''
+        - group
+input:
+   attributes:
+    role:
+      description: 'The role attribute is used to define the purpose of an element.'
+      type: enum
+      defaultValue: ''
+      choices:
+        - ''
+        - search
+a:
+  attributes:
+    aria-current:
+      description: 'The aria-current attribute is used to define the current item in a set of related elements.'
+      type: enum
+      defaultValue: ''
+      choices:
+        - ''
+        - page
+
+button:
+  attributes:
+    type:
+      defaultValue: ''
+      choices:
+        - ''
+        - submit
+        - button
+        - reset

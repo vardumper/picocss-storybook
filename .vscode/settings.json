@@ -2,5 +2,6 @@
     "search.exclude": {
         "": true,
         "**/node_modules": false
-    }
+    },
+    "twiggy.framework": "ignore"
 }
