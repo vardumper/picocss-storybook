@@ -18,6 +18,7 @@ class StorybookCompileCommand
         private readonly \Faker\Generator $faker,
     ) {
     }
+
     public function __invoke(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
@@ -29,6 +30,8 @@ class StorybookCompileCommand
         $this->createColorTokens($io);
         $this->createThemeColorLightTokens($io);
         $this->createThemeColorDarkTokens($io);
+        $this->createTooltipTokens($io);
+        $this->createGroupTokens($io);
         $this->createComponentsFromHtmlSpecifications($io);
 
         return Command::SUCCESS;
@@ -51,31 +54,51 @@ class StorybookCompileCommand
         return $path;
     }
 
+    private function createTooltipTokens(SymfonyStyle $io)
+    {
+    }
+    private function createGroupTokens(SymfonyStyle $io)
+    {
+    }
     private function createThemeColorLightTokens(SymfonyStyle $io)
     {
         $category = 'Tokens';
-        $folder = 'Colors';
+        $folder = 'Themes';
         $component = 'Light Theme';
         $destination = $this->getDestination($category, $folder);
+        if (!is_dir($destination)) {
+            mkdir($destination, 0777, true);
+        }
 
         /**
          * @todo implement
          */
         $storyPath = $destination . DIRECTORY_SEPARATOR . $this->stringToDirname($component) . '.stories.js';
+        file_put_contents($storyPath, '');
         $io->success('Created ' . basename($storyPath));
     }
 
     private function createThemeColorDarkTokens(SymfonyStyle $io)
     {
         $category = 'Tokens';
-        $folder = 'Colors';
+        $folder = 'Themes';
         $component = 'Dark Theme';
         $destination = $this->getDestination($category, $folder);
+        if (!is_dir($destination)) {
+            mkdir($destination, 0777, true);
+        }
 
         /**
          * @todo implement
          */
         $storyPath = $destination . DIRECTORY_SEPARATOR . $this->stringToDirname($component) . '.stories.js';
+        $js = $this->twig->render('theme.js.twig', [
+            'folder' => $folder,
+            'category' => $category,
+            'component' => $component,
+            // 'colors' => $colors,
+        ]);
+        file_put_contents($storyPath, '');
         $io->success('Created ' . basename($storyPath));
     }
 
@@ -216,6 +239,9 @@ class StorybookCompileCommand
 
         $htmlElements = Yaml::parseFile(getcwd() . Paths::SPECIFICATION_FILE);
         foreach ($htmlElements as $component => $properties) {
+            if (!isset($properties['level']) || !isset($properties['description'])) {
+                continue;
+            }
             // void elements aren't visible nor styled
             if ($properties['level'] === 'void') {
                 $io->warning('Skipping ' . $component . ' since it\'s neither block nor inline level and thus needs no styling.');
@@ -275,6 +301,26 @@ class StorybookCompileCommand
                     'stories' => $stories ?? [],
                 ];
                 // if ($component === 'ins') { var_dump($data); exit}
+                $js = $this->twig->render('element.stories.twig', $data);
+                file_put_contents($dest . DIRECTORY_SEPARATOR . $this->stringToDirname($properties['name']) . '.stories.js', $js);
+            }
+
+            if ((isset($properties['parent']) || isset($properties['unique_per_parent'])) && isset($properties['children'])) {
+                $folder = ucfirst($properties['level']) . ' Elements';
+                $folderDirname = $this->stringToDirname($folder);
+                $dest = $destination . DIRECTORY_SEPARATOR . $folderDirname . DIRECTORY_SEPARATOR . $this->stringToDirname($properties['name']);
+                if (!is_dir($dest)) {
+                    mkdir($dest, 0777, true);
+                }
+
+                $data = [
+                    'category' => $category,
+                    'folder' => $folder,
+                    'component' => $properties['name'],
+                    'element' => $component,
+                    'filename' => str_replace(getcwd(), '', $dest . DIRECTORY_SEPARATOR . $component . '.stories.js'),
+                    'properties' => $properties,
+                ];
                 $js = $this->twig->render('element.stories.twig', $data);
                 file_put_contents($dest . DIRECTORY_SEPARATOR . $this->stringToDirname($properties['name']) . '.stories.js', $js);
             }

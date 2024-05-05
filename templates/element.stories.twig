@@ -25,10 +25,15 @@
   'language_iso': 'text'
 } %}
 
+import { withActions } from '@storybook/addon-actions/decorator';
+
 export default {
   title: "{{ category }}/{{ folder }}/{{ component}}",
   tags: ["autodocs"],
   parameters: {
+    actions: {
+      handles: ['change'],
+    },
     layout: "centered",
     componentSubtitle: "{{ properties.level|capitalize }} Element",
     docs: {
@@ -78,6 +83,16 @@ export default {
         if ({{ attribute }}) {
           el.setAttribute('{{ attribute }}', '{{ attribute }}');
         }
+      {% elseif attribute == 'data-theme' %}
+        if (dataTheme === 'dark') {
+          el.setAttribute('data-theme', 'dark')
+          document.querySelector('#storybook-root').setAttribute('data-theme', 'dark');
+        } else if(dataTheme === 'light') {
+          el.setAttribute('data-theme', 'light');
+          document.querySelector('#storybook-root').setAttribute('data-theme', 'light');
+        } else {
+          document.querySelector('#storybook-root').removeAttribute('data-theme');
+        }
       {% else %}
         el.setAttribute('{{ attribute }}', {{ propName(attribute) }});
       {% endif %}
@@ -85,6 +100,7 @@ export default {
 {% endfor %}
     return el;
   },
+  decorators: [withActions],
 };
 
 export const Default = {
