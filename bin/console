@@ -6,21 +6,17 @@ require __DIR__ . '/../vendor/autoload.php';
 use PicoCSS\Storybook\Command\PicoCssSpecificationCommand;
 use PicoCSS\Storybook\Command\StorybookCompileCommand;
 use PicoCSS\Storybook\Command\HtmlSpecificationCommand;
-use PicoCSS\Storybook\Twig\Extension\HelperExtension;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Twig\Extension\DebugExtension;
-use Twig\Extra\Intl\IntlExtension;
 
 $twig = new \Twig\Environment(new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates'));
 $loader = new \Twig\Loader\FilesystemLoader(dirname(__FILE__) . '/../templates');
 $twig = new \Twig\Environment($loader, [
-    'debug' => true,
-    // 'cache' => dirname(__FILE__) . '/../.cache',
+    'debug' => true, // 'cache' => dirname(__FILE__) . '/../.cache',
 ]);
-$twig->addExtension(new DebugExtension());
-$twig->addExtension(new IntlExtension());
-$twig->addExtension(new HelperExtension());
+$twig->addExtension(new Twig\Extension\DebugExtension());
+$twig->addExtension(new Twig\Extra\Intl\IntlExtension());
+$twig->addExtension(new PicoCSS\Storybook\Twig\Extension\HelperExtension());
 
 $faker = Faker\Factory::create();
 
