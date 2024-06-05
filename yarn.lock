@@ -1895,6 +1895,11 @@
   resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-8.0.10.tgz#dc48f174b26e44a7fbfbbc497797496dd208fcb9"
   integrity sha512-UMmaUaA3VOX/mKLsSvOnbZre2/1tZ6hazA6H0eAnClKb51jRD1AJrsBYK+uHr/CAp7t710bB5U8apPov7hayDw==
 
+"@storybook/node-logger@^7.6":
+  version "7.6.19"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-7.6.19.tgz#8a911288ee8052cf2c77cf5e2db2367b1b852b43"
+  integrity sha512-2g29QC44Zl1jKY37DmQ0/dO7+VSKnGgPI/x0mwVwQffypSapxH3rwLLT5Q5XLHeFyD+fhRu5w9Cj4vTGynJgpA==
+
 "@storybook/preset-html-webpack@8.0.10":
   version "8.0.10"
   resolved "https://registry.yarnpkg.com/@storybook/preset-html-webpack/-/preset-html-webpack-8.0.10.tgz#67ff07cbf2c18b8fe8ae014c0189713deb358f69"
@@ -3242,7 +3247,7 @@ css-declaration-sorter@^7.1.1:
   resolved "https://registry.yarnpkg.com/css-declaration-sorter/-/css-declaration-sorter-7.2.0.tgz#6dec1c9523bc4a643e088aab8f09e67a54961024"
   integrity sha512-h70rUM+3PNFuaBDTLe8wF/cdWu+dOZmb7pJt8Z2sedYbAcQVQV/tEchueg3GWxwqS0cxtbxmaHEdkNACqcvsow==
 
-css-loader@^6.7.1:
+css-loader@^6.7.1, css-loader@^6.8.1:
   version "6.11.0"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-6.11.0.tgz#33bae3bf6363d0a7c2cf9031c96c744ff54d85ba"
   integrity sha512-CTJ+AEQJjq5NzLga5pE39qdiSV56F8ywCIsqNIRF0r7BDgWsN25aazToqAFg7ZrtA/U016xudB3ffgweORxX7g==
@@ -5367,7 +5372,7 @@ parent-module@^1.0.0:
   dependencies:
     callsites "^3.0.0"
 
-parse-json@^5.0.0:
+parse-json@^5.0.0, parse-json@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/parse-json/-/parse-json-5.2.0.tgz#c76fc66dee54231c962b22bcc8a72cf2f99753cd"
   integrity sha512-ayCKvm/phCGxOkYRSCM82iDwct8/EonSEgCSxWxD7ve6jHggsFl4fZVQBPRNgQoKiuV/odhFrGzQXZwbifC8Rg==
@@ -5519,6 +5524,15 @@ possible-typed-array-names@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/possible-typed-array-names/-/possible-typed-array-names-1.0.0.tgz#89bb63c6fada2c3e90adc4a647beeeb39cc7bf8f"
   integrity sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==
+
+postcss-loader@^7.3.3:
+  version "7.3.4"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-7.3.4.tgz#aed9b79ce4ed7e9e89e56199d25ad1ec8f606209"
+  integrity sha512-iW5WTTBSC5BfsBJ9daFMPVrLT36MrNiC6fqOZTTaHjBNX6Pfd5p+hSBqe/fEeNd7pc13QiAyGt7VdGMw4eRC4A==
+  dependencies:
+    cosmiconfig "^8.3.5"
+    jiti "^1.20.0"
+    semver "^7.5.4"
 
 postcss-modules-extract-imports@^3.1.0:
   version "3.1.0"
@@ -6236,6 +6250,17 @@ store2@^2.14.2:
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.14.3.tgz#24077d7ba110711864e4f691d2af941ec533deb5"
   integrity sha512-4QcZ+yx7nzEFiV4BMLnr/pRa5HYzNITX2ri0Zh6sT9EyQHbBHacC6YigllUPU9X3D0f/22QCgfokpKs52YRrUg==
 
+storybook-addon-sass-postcss@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/storybook-addon-sass-postcss/-/storybook-addon-sass-postcss-0.2.0.tgz#2f6eacb9080ae1b13aea27dd096120ff9bc48059"
+  integrity sha512-j1j/ZxcEK6SZ7EZoJUio5M5i7zHy8FBHuccNxMC/1aoFJImA0RMvtx3iJLW8jjSfFVXLAOk6Gw+SOHAoa+1GpQ==
+  dependencies:
+    "@storybook/node-logger" "^7.6"
+    css-loader "^6.8.1"
+    postcss-loader "^7.3.3"
+    sass-loader "^13.3.2"
+    style-loader "^3.3.4"
+
 storybook@^8.0.8:
   version "8.0.10"
   resolved "https://registry.yarnpkg.com/storybook/-/storybook-8.0.10.tgz#397e7a95641421610ba4741bc63adbb380eed01f"
@@ -6248,7 +6273,16 @@ stream-shift@^1.0.0:
   resolved "https://registry.yarnpkg.com/stream-shift/-/stream-shift-1.0.3.tgz#85b8fab4d71010fc3ba8772e8046cc49b8a3864b"
   integrity sha512-76ORR0DO1o1hlKwTbi/DM3EXWGf3ZJYO8cXX5RJwnul2DEg2oyoZyjLNoQM8WsvZiFKCRfC1O0J7iCvie3RZmQ==
 
-"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0:
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+string-width@^4.1.0, string-width@^4.2.0:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -6280,7 +6314,14 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
@@ -6864,7 +6905,16 @@ wordwrap@^1.0.0:
   resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-1.0.0.tgz#27584810891456a4171c8d0226441ade90cbcaeb"
   integrity sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q==
 
-"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+"wrap-ansi-cjs@npm:wrap-ansi@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
+  integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
+  dependencies:
+    ansi-styles "^4.0.0"
+    string-width "^4.1.0"
+    strip-ansi "^6.0.0"
+
+wrap-ansi@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
