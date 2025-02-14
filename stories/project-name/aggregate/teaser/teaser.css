@@ -1,0 +1,9 @@
+:root {
+    --teaser-border-color: #000000;
+    --teaser-padding: 3rem;
+}
+
+div.teaser {
+    padding: var(--teaser-padding);
+    border: 1px solid var(--teaser-border-color);
+}
