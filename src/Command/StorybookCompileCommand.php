@@ -24,7 +24,7 @@ class StorybookCompileCommand
         $io = new SymfonyStyle($input, $output);
 
         if (!is_dir(getcwd() . DIRECTORY_SEPARATOR . 'node_modules' . DIRECTORY_SEPARATOR . '@picocss')) {
-            throw new \Exception('You need to install Storybook and PicoCSS first. Execute `yarn install`, the retry.');
+            throw new \Exception('You need to install Storybook and PicoCSS first. Execute `yarn install`, then retry.');
         }
 
         $this->createColorTokens($io);

@@ -46,6 +46,7 @@
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
     "styled-components": "^6.1.8",
+    "vite": "^6.1.0",
     "webpack": "^5.90.3"
   },
   "resolutions": {

@@ -1,0 +1,23 @@
+---
+teaser:
+  name: Project Name/Pure JS/Teaser
+  elements:
+    - div:
+        attributes:
+          class: teaser
+        elements:
+        - img:
+            attributes:
+              class: teaser__image
+              src: '{{ image.src }}'
+              srcset: '{{ image.srcset }}'
+              alt: '{{ image.alt }}'
+        - h3:
+            attributes:
+              class: teaser__title
+            text: '{{ headline }}'
+        - p:
+            attributes:
+              class: teaser__description
+            text: '{{ description }}'
+...

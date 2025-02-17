@@ -1,0 +1,18 @@
+---
+id: teaser
+name: Project Name/Pure JS/Teaser
+data:
+  - div:
+      attributes:
+        class: teaser
+      children:
+      - img:
+          attributes:
+            src: '{{ image.src }}'
+            srcset: '{{ image.srcset }}'
+            alt: '{{ image.alt }}'
+      - h3:
+          text: '{{ headline }}'
+      - p:
+          text: '{{ description }}'
+...

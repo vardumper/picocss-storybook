@@ -1,5 +1,7 @@
 /** @type { import('@storybook/html-webpack5').StorybookConfig } */
 
+// const { mergeConfig } = require('vite');
+
 const config = {
   stories: [
     "../stories/**/*.mdx",

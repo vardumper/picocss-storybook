@@ -3,6 +3,7 @@
 declare(strict_types=1);
 require __DIR__ . '/../vendor/autoload.php';
 
+use PicoCSS\Storybook\Command\CreateComponentCommand;
 use PicoCSS\Storybook\Command\PicoCssSpecificationCommand;
 use PicoCSS\Storybook\Command\StorybookCompileCommand;
 use PicoCSS\Storybook\Command\HtmlSpecificationCommand;
@@ -24,10 +25,11 @@ $app = new Silly\Application();
 $app->command('html', new HtmlSpecificationCommand())->descriptions('Creates the HTML5 specification based on some YAML files.');
 $app->command('picocss', new PicoCssSpecificationCommand())->descriptions('Creates a custom HTML specfication for PicoCSS based on HTML and some YAML files.');
 $app->command('storybook', new StorybookCompileCommand($twig, $faker))->descriptions('Creates the Storybook components based on some YAML files.');
+$app->command('create:component file', new CreateComponentCommand($file))->descriptions('Creates a new component based on a YAML file.');
 $app->command('make', function (InputInterface $input, OutputInterface $output) {
     $this->runCommand('html', $output);
     $this->runCommand('picocss', $output);
     $this->runCommand('storybook', $output);
 })->descriptions('Create the HTML specification from YAML files and builds the Storybook components.');
-$app->setDefaultCommand('make');
+// $app->setDefaultCommand('make');
 $app->run();

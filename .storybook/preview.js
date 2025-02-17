@@ -31,18 +31,18 @@ const preview = {
       story: {
         iframeHeight: "400px",
       },
-      source: { type: "code" },
+      source: { type: "code", language: "html", dark: false, autoFormat: true },
       layout: "fullscreen",
       // prepareForInline: (storyFn) => htmlToReactParser.parse(storyFn()),
     },
     layout: "fullscreen",
-    // html: {
-    //   prettier: {
-    //     tabWidth: 4,
-    //     useTabs: false,
-    //     htmlWhitespaceSensitivity: "strict",
-    //   },
-    // },
+    html: {
+      prettier: {
+        tabWidth: 4,
+        useTabs: false,
+        htmlWhitespaceSensitivity: "strict",
+      },
+    },
   },
 };
 
