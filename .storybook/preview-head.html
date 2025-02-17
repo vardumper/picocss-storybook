@@ -7,3 +7,12 @@
     max-height: 39px !important;
   }
 </style>
+
+<div class="container-fluid" id="storybook-root"></div>
+<script>
+  const wrapper = document.querySelector('.container-fluid');
+  const root = document.getElementById('storybook-root'); // Updated ID to match the changes in preview.js
+  wrapper.appendChild(root);
+  // document.removeChild(root);
+  // Additional functionality can be added here if necessary
+</script>
