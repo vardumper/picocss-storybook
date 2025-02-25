@@ -43,7 +43,7 @@
     "js-beautify": "^1.15.1",
     "postcss": "^8.4.35",
     "postcss-scss": "^4.0.9",
-    "prettier": "^3.2.5",
+    "prettier": "^3.4.2",
     "sass": "^1.71.1",
     "styled-components": "^6.1.8",
     "webpack": "^5.90.3"
