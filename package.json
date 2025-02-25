@@ -41,7 +41,7 @@
     "@storybook/addon-a11y": "^8.0.8",
     "css-declaration-sorter": "^7.1.1",
     "js-beautify": "^1.15.1",
-    "postcss": "^8.4.35",
+    "postcss": "^8.5.1",
     "postcss-scss": "^4.0.9",
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
