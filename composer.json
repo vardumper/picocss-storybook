@@ -33,12 +33,13 @@
         "phpmd/phpmd": "^2.15",
         "symplify/easy-ci": "^12.1",
         "symplify/easy-coding-standard": "^12.1.14",
-        "twig/twig": "^3.9.3"
+        "twig/twig": "^3.9.3",
+        "vardumper/extended-htmldocument": "dev-main"
     },
     "config": {
         "sort-packages": true,
         "platform": {
-            "php": "8.3"
+            "php": "8.4"
         },
         "optimize-autoloader": true,
         "preferred-install": {
@@ -73,5 +74,11 @@
             "homepage": "https://erikpoehler.com",
             "role": "Developer"
         }
-    ]
+    ],
+    "repositories": [{
+        "type": "vcs",
+        "url": "https://github.com/vardumper/extended-htmldocument"
+    }],
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }

@@ -25,7 +25,7 @@ class PicoCssSpecificationCommand
         $picoSpecs = Yaml::parseFile(getcwd() . Paths::PICO_DESCRIPTION_FILE);
         $htmlSpecs = Yaml::parseFile(getcwd() . Paths::HTML_SPECIFICATION_FILE);
 
-        $specs = \array_merge_recursive($htmlSpecs, $picoSpecs);
+        // $specs = \array_merge_recursive($htmlSpecs, $picoSpecs);
 
         /** @todo add generic attributes to every element (eg: tooltip, class button etc.) */
 
