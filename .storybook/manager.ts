@@ -1,4 +1,4 @@
-import { addons } from "storybook/manager-api";
+import { addons } from "@storybook/addons";
 import picocss from "./picocss";
 
 addons.setConfig({
