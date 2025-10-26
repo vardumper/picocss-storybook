@@ -27,10 +27,16 @@ cd picocss-storybook
 And run:
 
 ```bash
-make
+composer install
+# merge PicoCSS sepcification into the HTML5 specification
+php bin/console picocss
+# render stories for storybook (to be replaced with generators in extended-htmldocument)
+php bin/console storybook
+yarn install
+yarn storybook
 ```
 
-This will install Composer and Yarn dependencies, build the storybook, and finally start Storybook for you.
+This will install Composer and Yarn dependencies, ~build the storybook~, and finally start Storybook for you.
 
 # Roadmap
 
