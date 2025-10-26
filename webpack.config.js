@@ -8,6 +8,15 @@ module.exports = {
         loaders: ["style-loader", "css-loader", "sass-loader"],
         include: path.resolve(__dirname, "../"),
       },
+      // {
+      //   test: /\.twig$/,
+      //   use: {
+      //     loader: 'twig-loader',
+      //     options: {
+      //         // See options section below
+      //     },
+      //   }
+      // },
       {
         test: /\.m?js$/,
         exclude: /(node_modules)/,
@@ -19,5 +28,8 @@ module.exports = {
         }
       }
     ]
+  },
+  node: {
+    fs: "empty" // avoids error messages
   }
 };

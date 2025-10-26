@@ -38,7 +38,7 @@
     "config": {
         "sort-packages": true,
         "platform": {
-            "php": "8.3"
+            "php": "8.4"
         },
         "optimize-autoloader": true,
         "preferred-install": {
@@ -73,5 +73,11 @@
             "homepage": "https://erikpoehler.com",
             "role": "Developer"
         }
-    ]
+    ],
+    "repositories": [{
+        "type": "vcs",
+        "url": "https://github.com/vardumper/extended-htmldocument"
+    }],
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }

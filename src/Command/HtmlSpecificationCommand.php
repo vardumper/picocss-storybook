@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PicoCSS\Storybook\Command;
@@ -10,6 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Yaml\Yaml;
 
+/** @deprecated not needed any longer, html specs is done in vardumper/extended-htmldocument */
 class HtmlSpecificationCommand
 {
     public function __invoke(InputInterface $input, OutputInterface $output): int

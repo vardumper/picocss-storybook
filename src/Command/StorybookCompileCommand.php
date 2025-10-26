@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace PicoCSS\Storybook\Command;
@@ -9,22 +10,21 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Yaml\Yaml;
-use function BenTools\CartesianProduct\cartesian_product;
+use function BenTools\CartesianProduct\combinations as cartesian_product;
 
 class StorybookCompileCommand
 {
     public function __construct(
         private readonly \Twig\Environment $twig,
         private readonly \Faker\Generator $faker,
-    ) {
-    }
+    ) {}
 
     public function __invoke(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
         if (!is_dir(getcwd() . DIRECTORY_SEPARATOR . 'node_modules' . DIRECTORY_SEPARATOR . '@picocss')) {
-            throw new \Exception('You need to install Storybook and PicoCSS first. Execute `yarn install`, the retry.');
+            throw new \Exception('You need to install Storybook and PicoCSS first. Execute `yarn install`, then retry.');
         }
 
         $this->createColorTokens($io);
@@ -54,12 +54,8 @@ class StorybookCompileCommand
         return $path;
     }
 
-    private function createTooltipTokens(SymfonyStyle $io)
-    {
-    }
-    private function createGroupTokens(SymfonyStyle $io)
-    {
-    }
+    private function createTooltipTokens(SymfonyStyle $io) {}
+    private function createGroupTokens(SymfonyStyle $io) {}
     private function createThemeColorLightTokens(SymfonyStyle $io)
     {
         $category = 'Tokens';
@@ -198,8 +194,8 @@ class StorybookCompileCommand
         try {
             $htmlAttributes = Yaml::parseFile(getcwd() . Paths::ELEMENT_DESCRIPTION_FILE);
             $type = isset($htmlAttributes[$element]['attributes'][$attribute])
-            ? $htmlAttributes[$element]['attributes'][$attribute]
-            : $fallBackType;
+                ? $htmlAttributes[$element]['attributes'][$attribute]
+                : $fallBackType;
         } catch (\Exception) {
         }
 
@@ -324,13 +320,6 @@ class StorybookCompileCommand
                 $js = $this->twig->render('element.stories.twig', $data);
                 file_put_contents($dest . DIRECTORY_SEPARATOR . $this->stringToDirname($properties['name']) . '.stories.js', $js);
             }
-        }
-
-        exec('yarn format 2>&1 &', $return, $code); // formats the generated files
-        if ($code != 0) {
-            $io->error(sprintf('Dang! Something went wrong during formatting of stories.js files: %s (%s)', join('<br />', $return), $code));
-        } else {
-            $io->success('All components have been created.');
         }
     }
 }
