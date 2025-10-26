@@ -37,12 +37,3 @@ yarn storybook
 ```
 
 This will install Composer and Yarn dependencies, ~build the storybook~, and finally start Storybook for you.
-
-# Roadmap
-
-- [x] Automatically add ~all possible argument combinations~ required argument combinations (cartesian product) as stories.
-- [x] Remove pico.css from preview.js and instead use a custom pico.scss without the default theme.
-- [x] Enrich HTML5 Specifications with PicoCSS-specific definitions. (eg: class="{contrast|outline|secondary}")
-- [ ] Move styles into a category/folder/_component-name.scss file. Decide wether to autogenerate or handcraft them.
-- [ ] Finish all HTML5 Elements including complex or composite components.
-- [ ] Auto generate templates for different technologies (Twig, React, Vue, Angular, Svelte, etc.)
