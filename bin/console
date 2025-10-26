@@ -28,7 +28,7 @@ $app->command('picocss', new PicoCssSpecificationCommand())->descriptions('Creat
 $app->command('storybook', new StorybookCompileCommand($twig, $faker))->descriptions('Creates the Storybook components based on some YAML files.');
 // $app->command('create:component [file]', new CreateComponentCommand($file))->descriptions('Creates a new component based on a YAML file.');
 $app->command('make', function (InputInterface $input, OutputInterface $output) {
-    $this->runCommand('html', $output);
+    // $this->runCommand('html', $output);
     $this->runCommand('picocss', $output);
     $this->runCommand('storybook', $output);
 })->descriptions('Create the HTML specification from YAML files and builds the Storybook components.');
