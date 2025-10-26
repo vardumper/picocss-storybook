@@ -14,7 +14,7 @@ Storybook is a great tool to develop and test components in isolation. It is als
 # Goals
 
 The goal of this repository is to provide a starting point for developing PicoCSS Themes and Color Schemes.
-Starting off with a component library utilizing the PicoCSS Default Theme. As an extra benefit, this repo can produce Symfony UX Twig Components, that are ready to be used in Symfony Projects. This can be done by autoloading the generated Twig Components namespace into a Symfony Project.
+Starting off with a component library utilizing the PicoCSS Default Theme.
 
 # Getting Started
 
