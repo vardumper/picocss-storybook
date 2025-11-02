@@ -1,5 +1,4 @@
 import type { Preview } from '@storybook/html-vite';
-// import { action } from 'storybook/actions';
 import { theme } from './manager';
 
 import { Title, Subtitle, Description, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';

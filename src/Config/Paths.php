@@ -13,7 +13,7 @@ class Paths
     public const ELEMENT_NAMES_FILE = DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'html5' . DIRECTORY_SEPARATOR . 'html5-element-names.yaml';
 
     // public const HTML_SPECIFICATION_FILE = DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'html5' . DIRECTORY_SEPARATOR . 'html5-specification.yaml';
-    public const HTML_SPECIFICATION_FILE = '/vendor/vardumper/extended-htmldocument/src/Resources/specifications/html5.yaml';
+    public const HTML_SPECIFICATION_FILE = '/vendor/vardumper/extended-htmldocument/src/Resources/specifications/html5-with-aria.yaml';
 
     public const HTML_ATTRIBUTE_TYPES = DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'html5' . DIRECTORY_SEPARATOR . 'html5-attribute-types.yaml';
 

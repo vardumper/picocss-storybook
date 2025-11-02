@@ -2,7 +2,6 @@ import type { StorybookConfig } from '@storybook/html-vite';
 
 const config: StorybookConfig = {
   stories: [
-    // "../stories/**/*.mdx",
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   core: {
@@ -10,7 +9,8 @@ const config: StorybookConfig = {
     builder: '@storybook/builder-vite'
   },
   addons: ["@storybook/addon-links", // {
-  '@storybook/addon-a11y', //   name: "storybook-addon-sass-postcss",
+    '@storybook/addon-a11y',
+  //   name: "storybook-addon-sass-postcss",
   //   options: {
   //     rule: {
   //       test: /\.(scss|sass)$/i,

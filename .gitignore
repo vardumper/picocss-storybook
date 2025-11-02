@@ -3,10 +3,8 @@
 /bin/php
 /node_modules/
 /vendor/
-/stories/html/
 /storybook-static/
 /.history/
-/stories/**/*.stories.js
 /config/html5-specification.min.yaml
 /config/html5-specification.yaml
 /config/html5-specification.php
